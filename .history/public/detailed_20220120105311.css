@@ -6,6 +6,7 @@ body {
 
 .menu {
   height: 50px;
+
   background-color: rgba(0, 0, 0, 0.425);
   display: flex;
   justify-content: space-between;
