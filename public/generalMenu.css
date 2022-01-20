@@ -1,0 +1,52 @@
+body {
+  background-image: url("../photo/ej2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hiddenMenu {
+  display: flex;
+  justify-content: right;
+  color: white;
+}
+.fas {
+  display: block;
+  font-size: 40px;
+}
+.menu-butten {
+  width: 50px;
+  height: 50px;
+}
+.yndhanur {
+  display: grid;
+  justify-content: center;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 100px;
+  column-gap: 100px;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+.products {
+  border: 1px solid;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fbe7c7;
+  border-radius: 50px;
+  color: #ed7b2e;
+}
+a {
+  text-decoration: none;
+}
+p {
+  font-size: 25px;
+  font-weight: 700;
+}
