@@ -111,4 +111,6 @@ p{
 div > ul{
     margin-left: 70px;
 } 
-
+.buttonDetailed{
+  background-color: white;
+}
