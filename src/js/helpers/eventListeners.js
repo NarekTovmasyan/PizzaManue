@@ -9,4 +9,7 @@ export const tableEventListeners = () => {
 
 export const generalMenuEventListeners = () => {
     console.log("generali event");
+    document.querySelectorAll(".productsGeneralMenu").forEach(function(element, i) {
+        element.onclick = function() {};
+    });
 }
