@@ -1,4 +1,4 @@
-export const renderGeneralMenuPage = () => {
+export const renderTablePage = () => {
     const wrapper = `<div class = "table"> 
     <div class="containerTable">
     <select name="tables" id="selectTable" class="tables">
@@ -10,5 +10,5 @@ export const renderGeneralMenuPage = () => {
       <button class="connectToTable">Ամրագրել</button> 
      </div>
      </div> `
-    document.querySelector(".mainPageFilter").innerHTML = wrapper;
+    document.querySelector(".mainContainer").innerHTML = wrapper;
 }

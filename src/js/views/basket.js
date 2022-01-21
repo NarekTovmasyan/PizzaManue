@@ -34,5 +34,5 @@ export const renderBasketPage = () => {
    </div>
 </div>`
 
-    document.querySelector(".mainPageFilter").innerHTML = wrapper;
+    document.querySelector(".mainContainer").innerHTML = wrapper;
 }

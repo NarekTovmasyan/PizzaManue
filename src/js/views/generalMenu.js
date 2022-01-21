@@ -1,4 +1,3 @@
-
 export const renderGeneralMenuPage = () => {
     const wrapper = `<div class="generalMenu">
       <nav class="hiddenMenuGeneralMenu">
@@ -17,5 +16,5 @@ export const renderGeneralMenuPage = () => {
         </div>
       </div>
     </div>`
-    document.querySelector(".mainPageFilter").innerHTML = wrapper;
+    document.querySelector(".mainContainer").innerHTML = wrapper;
 }
