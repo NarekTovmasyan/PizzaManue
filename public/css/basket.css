@@ -1,5 +1,5 @@
 body {
-    background-image: url(./images/background.jpg);
+    background-image: url(./img/ej6.jpg);
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -80,19 +80,19 @@ body {
     color: black
   }
 .pizza1Img{
-    background-image: url(./images/pizza1.png);
+    background-image: url(./img/pizza1.png);
     height:105px; 
     width: 160px;
     background-size: cover;
 }
 .pizza2Img{
-    background-image: url(./images/pizza2.png);
+    background-image: url(./img/pizza2.png);
     height:105px; 
     width: 160px;
     background-size: cover;
 }
 .pizza3Img{
-    background-image: url(./images/pizza3.png);
+    background-image: url(./img/pizza3.png);
     height:105px; 
     width: 160px;
     background-size: cover;
