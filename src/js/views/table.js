@@ -1,4 +1,7 @@
+import { tableEventListeners } from "../helpers/eventListeners";
+
 export const renderTablePage = () => {
+    debugger
     const wrapper = `<div class = "table"> 
     <div class="containerTable">
     <select name="tables" id="selectTable" class="tables">
@@ -11,4 +14,5 @@ export const renderTablePage = () => {
      </div>
      </div> `
     document.querySelector(".mainContainer").innerHTML = wrapper;
+    tableEventListeners();
 }

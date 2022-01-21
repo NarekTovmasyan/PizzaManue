@@ -1,12 +1,12 @@
- /* .table {
-    
- } */
- 
- body {
+ .table {
      background-image: url("../img/ej1.jpg");
      background-size: cover;
      background-repeat: no-repeat;
+     height: 100vh;
  }
+ /* body {
+    
+ } */
  
  .containerTable {
      display: flex;
@@ -14,7 +14,6 @@
      align-items: center;
      gap: 50px;
      justify-content: center;
-     margin-top: 180px;
  }
  
  .tables {
@@ -26,6 +25,7 @@
      border-radius: 30px;
      text-align: center;
      font-weight: 600;
+     margin-top: 180px;
  }
  
  .connectToTable {

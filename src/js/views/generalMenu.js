@@ -1,3 +1,5 @@
+import { generalMenuEventListeners } from "../helpers/eventListeners";
+
 export const renderGeneralMenuPage = () => {
     const wrapper = `<div class="generalMenu">
       <nav class="hiddenMenuGeneralMenu">
@@ -7,7 +9,7 @@ export const renderGeneralMenuPage = () => {
       </nav>
       <div class="yndhanurGeneralMenu">
         <div class="grid-containerGeneralMenu">
-          <a href="#" class="productGeneralMenu"><p>Տաք ուտեստներ</p></a>
+          <a href="#" class="productsGeneralMenu"><p>Տաք ուտեստներ</p></a>
           <a href="#" class="productsGeneralMenu"><p>Խորտիկներ</p></a>
           <a href="#" class="productsGeneralMenu"><p>Քաղցրավենիք</p></a>
           <a href="#" class="productsGeneralMenu"><p>Ըմպելիք</p></a>
@@ -17,4 +19,5 @@ export const renderGeneralMenuPage = () => {
       </div>
     </div>`
     document.querySelector(".mainContainer").innerHTML = wrapper;
+    generalMenuEventListeners();
 }
