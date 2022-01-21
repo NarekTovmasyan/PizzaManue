@@ -1,110 +1,112 @@
-body {
-  background-image: url("./img/background.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+.detailed {
+    background-image: url("./img/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.menu {
-  height: 50px;
-  background-color: rgba(0, 0, 0, 0.425);
-  display: flex;
-  justify-content: space-between;
+.menuDetailed {
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.425);
+    display: flex;
+    justify-content: space-between;
 }
 
 .fa-arrow-left {
-  color: #4472c4;
-  font-size: 40px;
-  cursor: pointer;
+    color: #4472c4;
+    font-size: 40px;
+    cursor: pointer;
 }
+
 .fa-bars {
-  color: #fff;
-  font-size: 40px;
-  cursor: pointer;
+    color: #fff;
+    font-size: 40px;
+    cursor: pointer;
 }
-.parent-container {
-  display: grid;
-  justify-content: center;
-  align-content: center;
+
+.parent-containerDetailed {
+    display: grid;
+    justify-content: center;
+    align-content: center;
 }
-.card-container {
+
+.card-containerDetailed {
     margin-top: 60px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 70px;
-  justify-content: center;
-  align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 70px;
+    justify-content: center;
+    align-items: center;
 }
-.card {
-    clip-path: polygon(
-      0% 5%,
-      /* top left */
-      5% 0%,
-      /* top left */
-      85% 0%,
-      /* top right */
-      100% 15%,
-      /* top right */
-      100% 95%,
-      /* bottom right */
-      100% 100%,
-      /* bottom right */
-      0% 100%,
-      /* bottom left */
-      0% 100%
-      /* bottom left */
+
+.cardDetailed {
+    clip-path: polygon( 0% 5%, /* top left */
+    5% 0%, /* top left */
+    85% 0%, /* top right */
+    100% 15%, /* top right */
+    100% 95%, /* bottom right */
+    100% 100%, /* bottom right */
+    0% 100%, /* bottom left */
+    0% 100%
+    /* bottom left */
     );
-
-  border-top-left-radius: 50px;
-  background-color: #e4b96e;
-  height: 450px;
-  width: 300px;
+    border-top-left-radius: 50px;
+    background-color: #e4b96e;
+    height: 450px;
+    width: 300px;
 }
 
-.card1{
+.card1Detailed {
     background-image: url("./img/pizza1.png");
-    height: 150px; 
+    height: 150px;
     width: 250px;
     background-size: cover;
     margin-left: 22px;
     margin-top: 30px;
 }
-.card2{
+
+.card2Detailed {
     /* background-image: url("./img/pizza2.png"); */
     background-image: url("./img/pizza2.png");
-    height: 150px; 
+    height: 150px;
     width: 250px;
     background-size: cover;
     margin-left: 22px;
     margin-top: 30px;
 }
-.card3{
+
+.card3Detailed {
     background-image: url("./img/pizza3.png");
-    height: 150px; 
+    height: 150px;
     width: 250px;
     background-size: cover;
     margin-left: 22px;
     margin-top: 30px;
-    
 }
 
 .line:before,
 .line:after {
     margin-top: 30px;
     margin-left: 25%;
- content: '';
- display: inline-block;
- width: 50%;
- height: 2px;
- background: #000;
- z-index: -1;
- position: relative;
- vertical-align: middle;
+    content: '';
+    display: inline-block;
+    width: 50%;
+    height: 2px;
+    background: #000;
+    z-index: -1;
+    position: relative;
+    vertical-align: middle;
 }
-p{
+
+.detailedCardIngredient1>ul {
+    margin-left: 70px;
+}
+
+.detailedCardsWords {
     text-align: center;
     font-weight: 700;
     font-size: 20px;
     margin: 20px 0px 0px 0px;
+<<<<<<< HEAD
    
    
 }
@@ -114,3 +116,6 @@ div > ul{
 .buttonDetailed{
   background-color: white;
 }
+=======
+}
+>>>>>>> 0ed59728e85797e7da376a6002c365af06c264a7

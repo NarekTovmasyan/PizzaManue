@@ -1,5 +1,6 @@
 export const renderFilterPage = () => {
-    const wrapper = `<div class="parentFilter">
+    const wrapper = `<div class="mainPageFilter"></div>
+    <div class="parentFilter">
         <div class="filterHeader">
             <div class="left">
                 <p class="filterName">Filter</p>
@@ -55,7 +56,7 @@ export const renderFilterPage = () => {
                 </div>
 
 
-                <div class="filterPageCard"><img class="filterCardsImage" src="../../img/pizza3.png" alt="">
+                <div class="filterPageCard"><img class="filterCardsImage" src="./img/pizza3.png" alt="">
 
                     <div class="cardsImageline">                                
                         <p class="filterCardsWords">Cheese Pizza <br> 1pcs: 300֏</p>
@@ -75,5 +76,5 @@ export const renderFilterPage = () => {
         </div>
 </div>`
 
-    document.querySelector(".mainPageFilter").innerHTML = wrapper;
+    document.querySelector(".mainContainer").innerHTML = wrapper;
 }
