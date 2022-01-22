@@ -11,16 +11,16 @@ export const renderGeneralMenuPage = () => { //nkaruma 2 ej@
           <span></span>
           <span></span>
           <ul id="menu">
-            <a class="detailedBurgerA" href="#">
-              <li>Home</li>
+            <a class="detailedBurgerA" id ="hamburger-Detailed">
+              <li>Detailed</li>
             </a>
-            <a class="detailedBurgerA" href="#">
+            <a class="detailedBurgerA" id ="hamburger-Product">
               <li>Product</li>
             </a>
-            <a class="detailedBurgerA" href="#">
+            <a class="detailedBurgerA" id ="hamburger-Basket">
               <li>Basket</li>
             </a>
-            <a class="detailedBurgerA" href="#">
+            <a class="detailedBurgerA" id ="hamburger-Contact">
               <li>Contact</li>
             </a>
           </ul>
@@ -58,4 +58,5 @@ export const renderGeneralMenuPage = () => { //nkaruma 2 ej@
     </div>`
     document.querySelector(".mainContainer").innerHTML = wrapper; //naxord@ jnjuma taza html nkaruma
     generalMenuEventListeners(); //nkareluc heto noric evenlisenera kaxum
+
 }

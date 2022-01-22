@@ -1,4 +1,5 @@
-import { basketEventListeners } from "../helpers/eventListeners"
+import { productMenuEventListeners } from "../helpers/eventListeners";
+
 //5qayl
 export const renderProductMenuPage = () => {
     const wrapper = `<div class="productMenuBody">
@@ -12,16 +13,16 @@ export const renderProductMenuPage = () => {
           <span></span>
           <span></span>
           <ul id="menu">
-            <a class="detailedBurgerA" href="#">
+            <a class="detailedBurgerA" >
               <li>Home</li>
             </a>
-            <a class="detailedBurgerA" href="#">
-              <li>Product</li>
+            <a class="detailedBurgerA" id="hamburger-Detailed">
+              <li>Detailed</li>
             </a>
-            <a class="detailedBurgerA" href="#">
+            <a class="detailedBurgerA" id="hamburger-Basket">
               <li>Basket</li>
             </a>
-            <a class="detailedBurgerA" href="#">
+            <a class="detailedBurgerA" id="hamburger-Contact">
               <li>Contact</li>
             </a>
           </ul>
@@ -42,7 +43,7 @@ export const renderProductMenuPage = () => {
           <div class="row-2">Պանիր <a class="plyus"> + </a> <a class="minus"> - </a>
           </div>
           <div class="row-2"> Երշիկ ․․․</div>
-          <div class="row-3"> <label for="quantity">Քանակ (կտոր)<input type="number" id="quantity" name="quantity" min="1" max="30"></label>
+          <div class="row-3"> <label for="quantity">Քանակ (կտոր)</label><input type="number" id="quantity" name="quantity" min="1" max="30">
             <button class="confirm">Հաստատել</button></div>
         </div>
       </div>
@@ -56,5 +57,6 @@ export const renderProductMenuPage = () => {
   </div>`
     document.querySelector(".mainContainer").innerHTML = wrapper; //nkaruma
 
-    basketEventListeners();
+    productMenuEventListeners();
+
 }

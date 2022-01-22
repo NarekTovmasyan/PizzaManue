@@ -1,5 +1,6 @@
 //5qayl
-import { productMenuEventListeners } from "../helpers/eventListeners";
+import { detailedPageEventListeners } from "../helpers/eventListeners";
+
 //4qayl
 export const renderDetailedPage = () => {
     const wrapper = `<div class="detailed">
@@ -11,16 +12,16 @@ export const renderDetailedPage = () => {
           <span></span>
           <span></span>
           <ul id="menu">
-            <a class="detailedBurgerA" href="#">
+            <a class="detailedBurgerA">
               <li>Home</li>
             </a>
-            <a class="detailedBurgerA" href="#">
+            <a class="detailedBurgerA" id="hamburger-Product">
               <li>Product</li>
             </a>
-            <a class="detailedBurgerA" href="#">
+            <a class="detailedBurgerA" id="hamburger-Basket">
               <li>Basket</li>
             </a>
-            <a class="detailedBurgerA" href="#">
+            <a class="detailedBurgerA" id="hamburger-Contact">
               <li>Contact</li>
             </a>
           </ul>
@@ -106,5 +107,6 @@ export const renderDetailedPage = () => {
 </div>`
     document.querySelector(".mainContainer").innerHTML = wrapper; //nkarec, hin@ jnjec
 
-    productMenuEventListeners(); //eventa kaxum productMenui mej
+    detailedPageEventListeners(); //eventa kaxum productMenui mej
+
 }

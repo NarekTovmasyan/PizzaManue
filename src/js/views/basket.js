@@ -1,23 +1,25 @@
+import { basketEventListeners } from "../helpers/eventListeners";
+
 export const renderBasketPage = () => {
     const wrapper = `<div class = "basket">
     <nav class="menu">
-    <i class="fas fa-arrow-left"></i>
+    <i class="fas fa-arrow-left" id="basket-arrow"></i>
     <div id="menuToggle">
           <input type="checkbox" />
           <span></span>
           <span></span>
           <span></span>
           <ul id="menu">
-            <a class="detailedBurgerA" href="#">
+            <a class="detailedBurgerA">
               <li>Home</li>
             </a>
-            <a class="detailedBurgerA" href="#">
+            <a class="detailedBurgerA" id="hamburger-Product">
               <li>Product</li>
             </a>
-            <a class="detailedBurgerA" href="#">
-              <li>Basket</li>
+            <a class="detailedBurgerA" id="hamburger-Detailed">
+              <li>Detailed</li>
             </a>
-            <a class="detailedBurgerA" href="#">
+            <a class="detailedBurgerA" id="hamburger-Contact">
               <li>Contact</li>
             </a>
           </ul>
@@ -54,4 +56,6 @@ export const renderBasketPage = () => {
 </div>`
 
     document.querySelector(".mainContainer").innerHTML = wrapper;
+    basketEventListeners();
+
 }
