@@ -1,7 +1,12 @@
 import { tableEventListeners } from "../helpers/eventListeners";
 
+// function renderTablePage(){
+//     const wrpper=1;
+// }
+//export {renderTablePage}
+
+//1qayl
 export const renderTablePage = () => {
-    debugger
     const wrapper = `<div class = "table"> 
     <div class="containerTable">
     <select name="tables" id="selectTable" class="tables">
@@ -14,5 +19,7 @@ export const renderTablePage = () => {
      </div>
      </div> `
     document.querySelector(".mainContainer").innerHTML = wrapper;
-    tableEventListeners();
+
+    //2qayl
+    tableEventListeners(); //hetevuma eventnerin, mianuma eventnerin
 }

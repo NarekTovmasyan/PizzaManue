@@ -1,6 +1,8 @@
+//4qayl
 import { generalMenuEventListeners } from "../helpers/eventListeners";
 
-export const renderGeneralMenuPage = () => {
+//3qayl
+export const renderGeneralMenuPage = () => { //nkaruma 2 ej@
     const wrapper = `<div class="generalMenu">
       <nav class="hiddenMenuGeneralMenu">
         <button class="menu-buttenGeneralMenu">
@@ -18,6 +20,6 @@ export const renderGeneralMenuPage = () => {
         </div>
       </div>
     </div>`
-    document.querySelector(".mainContainer").innerHTML = wrapper;
-    generalMenuEventListeners();
+    document.querySelector(".mainContainer").innerHTML = wrapper; //naxord@ jnjuma taza html nkaruma
+    generalMenuEventListeners(); //nkareluc heto noric evenlisenera kaxum
 }

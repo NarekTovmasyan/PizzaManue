@@ -1,3 +1,6 @@
+//5qayl
+import { productMenuEventListeners } from "../helpers/eventListeners";
+//4qayl
 export const renderDetailedPage = () => {
     const wrapper = `<div class="detailed">
     <nav class="menuDetailed">
@@ -65,5 +68,7 @@ export const renderDetailedPage = () => {
 </div>
 </div>
 </div>`
-    document.querySelector(".mainContainer").innerHTML = wrapper;
+    document.querySelector(".mainContainer").innerHTML = wrapper; //nkarec, hin@ jnjec
+
+    productMenuEventListeners(); //eventa kaxum productMenui mej
 }

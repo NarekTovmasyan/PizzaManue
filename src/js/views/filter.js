@@ -1,6 +1,7 @@
 export const renderFilterPage = () => {
-    const wrapper = ` <div class="filterBody">
-    <div class="mainPageFilter"></div>
+    const wrapper = ` 
+<div class="filterBody">
+  <div class="mainPageFilter"></div>
     <div class="parentFilter">
         <div class="filterHeader">
             <div class="filterTitleLeft">
@@ -34,7 +35,29 @@ export const renderFilterPage = () => {
     <div class="parentHeaderMenuOfFilter">
         <nav class="headerMenu">
             <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-bars"></i>
+            <div id="filterBurger">
+                        <input class="filterBurgerInput" type="checkbox" />
+                        <span class="filterBurgerSpan"></span>
+                        <span class="filterBurgerSpan"></span>
+                        <span class="filterBurgerSpan"></span>
+                        <ul id="filterBurgerLinkMenu">
+                            <a class="filterBurgerLinkHome" href="#">
+                                <li class="filterBurgerLinkMenuLi">Home</li>
+                            </a>
+                            <a class="filterBurgerLinkHome" href="#">
+                                <li class="filterBurgerLinkMenuLi"><i class="fas fa-shopping-basket"></i></li>
+                            </a>
+                            <a class="filterBurgerLinkHome" href="#">
+                                <li class="filterBurgerLinkMenuLi">Back</li>
+                            </a>
+                            <a class="filterBurgerLinkHome" href="#">
+                                <li class="filterBurgerLinkMenuLi">Table Number</li>
+                            </a>
+                            <a class="filterBurgerLinkHome" href="#">
+                                <li class="filterBurgerLinkMenuLi">Delete all</li>
+                            </a>
+                        </ul>
+                    </div>
         </nav>
         <div class="filterParentPageCards">
             <div class="filterPageCards">

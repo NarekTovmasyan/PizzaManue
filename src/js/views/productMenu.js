@@ -1,3 +1,4 @@
+//5qayl
 export const renderProductMenuPage = () => {
     const wrapper = `  <div class="main-block">
     <header>
@@ -51,6 +52,6 @@ export const renderProductMenuPage = () => {
       </footer>
     </main>
   </div>`
-    document.querySelector(".mainContainer").innerHTML = wrapper;
+    document.querySelector(".mainContainer").innerHTML = wrapper; //nkaruma
 
 }
