@@ -1,100 +1,98 @@
-
- .basket{
-  background-image: url(./img/ej6.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
- }
- .mainBasket{
-      width: 100%;
-      height: 75vh;
+.basket {
+    background-image: url("../img/ej6.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 100%;
 }
-.menu{
+
+.mainBasket {
+    width: 100%;
+    height: 75vh;
+}
+
+.menu {
     height: 50px;
     background-color: rgba(0, 0, 0, 0.425);
     display: flex;
     justify-content: space-between;
-  }
+}
+
 .fa-arrow-left {
     color: #4472c4;
     font-size: 40px;
     cursor: pointer;
-  }
-  .fa-bars {
+}
+
+.fa-bars {
     color: #fff;
     font-size: 40px;
     cursor: pointer;
-  }
-  .closeBasket{
-      background-color: rgba(160, 158, 158, 0.144);
-      margin-left: 120%;
-  }
-
-   .fa-times{
-      font-size: 40px;
-      color: red;
-      cursor: pointer;
-  }
-.propBasket{
-  background-color: rgba(255, 255, 255, 0.144) ;
-  width: 94%;
-  height: 14vh;
-  margin-top: 3%;
-  margin-left: 3%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  column-gap: 100px;
-  justify-content: center;
-  align-items: center;
-  color:white ;
-  font-size: 18px;
 }
- .propBasket >  div{
+
+.closeBasket {
+    background-color: rgba(160, 158, 158, 0.144);
+    margin-left: 120%;
+}
+
+.fa-times {
+    font-size: 40px;
+    color: red;
+    cursor: pointer;
+}
+
+.propBasket {
+    background-color: rgba(255, 255, 255, 0.144);
+    width: 94%;
+    height: 14vh;
+    margin-top: 3%;
+    margin-left: 3%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    column-gap: 100px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+}
+
+.propBasket>div {
     width: 150%;
- }
-.sumBasket{
-    background-color: rgba(255, 255, 255, 0.144) ;
+}
+
+.sumBasket {
+    background-color: rgba(255, 255, 255, 0.144);
     width: 20%;
     height: 10vh;
     margin-top: 3%;
     margin-left: 55%;
     font-size: 25px;
     font-weight: 500;
-    text-align:center;
-    color:white;
+    text-align: center;
+    color: white;
 }
- 
-.confirmBasket{
-    background-color:rgb(97, 216, 97);
+
+.confirmBasket {
+    background-color: rgb(97, 216, 97);
     height: 9vh;
     width: 20%;
     border-radius: 30px;
-    text-align:center;
+    text-align: center;
     font-size: 30px;
     font-weight: 700;
-    margin-left:40%;
+    margin-left: 40%;
     margin-top: 2%;
-    color:white;
+    color: white;
     cursor: pointer;
 }
+
 .confirmBasket:hover {
     background-color: rgb(216, 250, 216);
     color: black
-  }
-.pizza1ImgBasket{
-    background-image: url(./img/pizza1.png);
-    height:105px; 
-    width: 160px;
-    background-size: cover;
 }
-.pizza2ImgBasket{
-    background-image: url(./img/pizza2.png);
-    height:105px; 
-    width: 160px;
-    background-size: cover;
-}
-.pizza3ImgBasket{
-    background-image: url(./img/pizza3.png);
-    height:105px; 
+
+.pizza1ImgBasket {
+    height: 105px;
     width: 160px;
     background-size: cover;
 }

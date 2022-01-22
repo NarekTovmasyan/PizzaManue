@@ -6,6 +6,7 @@ import { renderGeneralMenuPage } from "../views/generalMenu";
 //5qayl
 import { renderProductMenuPage } from "../views/productMenu";
 
+import { renderBasketPage } from "../views/basket";
 //2qayl
 export const tableEventListeners = () => {
         let inputButton = document.querySelector(".connectToTable") //kpnuma kochakin
@@ -24,5 +25,13 @@ export const generalMenuEventListeners = () => {
 export const productMenuEventListeners = () => {
     document.querySelectorAll(".cardDetailed").forEach(function(element) {
         element.onclick = renderProductMenuPage;
+    })
+}
+
+
+export const basketEventListeners = () => {
+    console.log("hi");
+    document.querySelector(".addBasketButton").addEventListener("click", function() {
+        renderBasketPage();
     })
 }

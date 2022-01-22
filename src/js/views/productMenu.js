@@ -1,6 +1,8 @@
+import { basketEventListeners } from "../helpers/eventListeners"
 //5qayl
 export const renderProductMenuPage = () => {
-    const wrapper = `  <div class="main-block">
+    const wrapper = `<div class="productMenuBody">
+    <div class="main-block">
     <header>
       <div><i class="fas fa-arrow-left"></i></div>
        <nav >
@@ -40,18 +42,19 @@ export const renderProductMenuPage = () => {
           <div class="row-2">Պանիր <a class="plyus"> + </a> <a class="minus"> - </a>
           </div>
           <div class="row-2"> Երշիկ ․․․</div>
-          <div class="row-3"> <label for="quantity">Քանակ՝ Կտոր:</label>
-            <input type="number" id="quantity" name="quantity" min="1" max="30">
-            <input  type="submit" class="confirm" value="Հաստատել"></div>
+          <div class="row-3"> <label for="quantity">Քանակ (կտոր)<input type="number" id="quantity" name="quantity" min="1" max="30"></label>
+            <button class="confirm">Հաստատել</button></div>
         </div>
       </div>
       <footer>
         <div></div>
-        <input type="submit" class="button" value="Ավելացնել զամբյուղ" />
+        <button class="addBasketButton">Ավելացնել զամբյուղ</button>
           </div>
       </footer>
     </main>
+    </div>
   </div>`
     document.querySelector(".mainContainer").innerHTML = wrapper; //nkaruma
 
+    basketEventListeners();
 }

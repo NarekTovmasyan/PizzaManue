@@ -11,13 +11,12 @@ export const renderDetailedPage = () => {
 <div class="card-containerDetailed">
 
     <div class="cardDetailed">
-        <div class="card1Detailed">
-        </div>
-        <div class="namePrice1 line">
-            <p class="detailedCardsWords>Cheese Pizza <br> 1pcs: 300֏</p>
+        <div><img class="card2Detailed" src="./img/pizza1.png"/></div>
+        <div class="line">
+            <p class="detailedCardsWords"> Cheese Pizza <br> 1pcs: 300֏ </p>
         </div>
         <div class="detailedCardIngredient1">
-            <p class="detailedCardsWords>Ingredients <br>
+            <p class="detailedCardsWords">Ingredients <br>
                 <ul class="center">
                     <li>Cheese</li>
                     <li>Tomato</li>
@@ -28,14 +27,14 @@ export const renderDetailedPage = () => {
     </div>
 
     <div class="cardDetailed">
-        <div class="card2Detailed"></div>
+        <div><img class="card2Detailed" src="./img/pizza2.png"/></div>
 
         <div class="namePrice2 line">
-            <p class="detailedCardsWords> Pepperoni Pizza <br> 1pcs: 300֏</p>
+            <p class="detailedCardsWords"> Pepperoni Pizza <br> 1pcs: 300֏</p>
         </div>
 
         <div class="detailedCardIngredient1">
-            <p class="detailedCardsWords> Ingredients <br>
+            <p class="detailedCardsWords"> Ingredients <br>
                 <ul class="center">
                     <li>Cheese</li>
                     <li>Tomato</li>
@@ -46,14 +45,14 @@ export const renderDetailedPage = () => {
 
     </div>
     <div class="cardDetailed">
-        <div class="card3Detailed"> </div>
+       <div> <img class="card2Detailed" src="./img/pizza3.png"/> </div>
 
         <div class="namePrice3 line">
-            <p class="detailedCardsWords>Cheese Pizza <br> 1pcs: 300֏</p>
+            <p class="detailedCardsWords">Cheese Pizza <br> 1pcs: 300֏</p>
         </div>
 
         <div class="detailedCardIngredient1">
-            <p class="detailedCardsWords>Ingredients <br>
+            <p class="detailedCardsWords">Ingredients <br>
                 <ul class="center">
                     <li>Cheese</li>
                     <li>Tomato</li>
@@ -64,8 +63,10 @@ export const renderDetailedPage = () => {
 
     </div>
 </div>
-<div>
+
 </div>
+<div class="filterButtonOpenClose">
+    <button class="filterButtonOpenCloseStyle">Filter</button>
 </div>
 </div>`
     document.querySelector(".mainContainer").innerHTML = wrapper; //nkarec, hin@ jnjec
