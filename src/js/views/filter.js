@@ -35,29 +35,15 @@ export const renderFilterPage = () => {
     <div class="parentHeaderMenuOfFilter">
         <nav class="headerMenu">
             <i class="fas fa-arrow-left"></i>
-            <div id="filterBurger">
-                        <input class="filterBurgerInput" type="checkbox" />
-                        <span class="filterBurgerSpan"></span>
-                        <span class="filterBurgerSpan"></span>
-                        <span class="filterBurgerSpan"></span>
-                        <ul id="filterBurgerLinkMenu">
-                            <a class="filterBurgerLinkHome" href="#">
-                                <li class="filterBurgerLinkMenuLi">Home</li>
-                            </a>
-                            <a class="filterBurgerLinkHome" href="#">
-                                <li class="filterBurgerLinkMenuLi"><i class="fas fa-shopping-basket"></i></li>
-                            </a>
-                            <a class="filterBurgerLinkHome" href="#">
-                                <li class="filterBurgerLinkMenuLi">Back</li>
-                            </a>
-                            <a class="filterBurgerLinkHome" href="#">
-                                <li class="filterBurgerLinkMenuLi">Table Number</li>
-                            </a>
-                            <a class="filterBurgerLinkHome" href="#">
-                                <li class="filterBurgerLinkMenuLi">Delete all</li>
-                            </a>
-                        </ul>
-                    </div>
+            <label>
+              <input type="checkbox">
+              <span class="menu"> <span class="hamburger"></span> </span>
+                <ul>
+                  <li> <a href="#">Home</a> </li>
+                  <li> <a href="#">About</a> </li>
+                  <li> <a href="#">Contact</a> </li>
+                </ul>
+            </label>
         </nav>
         <div class="filterParentPageCards">
             <div class="filterPageCards">

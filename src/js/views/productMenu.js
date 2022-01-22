@@ -12,16 +12,16 @@ export const renderProductMenuPage = () => {
           <span></span>
           <span></span>
           <ul id="menu">
-            <a href="#">
+            <a class="detailedBurgerA" href="#">
               <li>Home</li>
             </a>
-            <a href="#">
+            <a class="detailedBurgerA" href="#">
               <li>Product</li>
             </a>
-            <a href="#">
+            <a class="detailedBurgerA" href="#">
               <li>Basket</li>
             </a>
-            <a href="#">
+            <a class="detailedBurgerA" href="#">
               <li>Contact</li>
             </a>
           </ul>
