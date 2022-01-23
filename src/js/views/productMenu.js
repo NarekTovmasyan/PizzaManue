@@ -5,7 +5,7 @@ export const renderProductMenuPage = () => {
     const wrapper = `<div class="productMenuBody">
     <div class="main-block">
     <header>
-      <div><i class="fas fa-arrow-left"></i></div>
+      <div><i class="fas fa-arrow-left" id="productMenu-arrow"></i></div>
        <nav >
         <div id="menuToggle">
           <input type="checkbox" />
@@ -56,7 +56,5 @@ export const renderProductMenuPage = () => {
     </div>
   </div>`
     document.querySelector(".mainContainer").innerHTML = wrapper; //nkaruma
-
     productMenuEventListeners();
-
 }

@@ -57,5 +57,4 @@ export const renderBasketPage = () => {
 
     document.querySelector(".mainContainer").innerHTML = wrapper;
     basketEventListeners();
-
 }

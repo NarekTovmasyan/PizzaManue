@@ -11,9 +11,13 @@ export const renderTablePage = () => {
     <div class="containerTable">
     <select name="tables" id="selectTable" class="tables">
         <option value="Սեղանի համար"selected>Սեղանի համար</option>  
-        <option value="1">1</option>  
-        <option value="2">2</option>
-        <option value="3">3</option>
+        <option id ="selectedNumber-ofTable" value="1">1</option>  
+        <option id ="selectedNumber-ofTable" value="2">2</option>
+        <option id ="selectedNumber-ofTable" value="3">3</option>
+        <option id ="selectedNumber-ofTable" value="4">4</option>
+        <option id ="selectedNumber-ofTable" value="5">5</option>
+        <option id ="selectedNumber-ofTable" value="6">6</option>
+        <option id ="selectedNumber-ofTable" value="7">7</option>
       </select> 
       <button class="connectToTable">Ամրագրել</button> 
      </div>

@@ -5,7 +5,7 @@ import { detailedPageEventListeners } from "../helpers/eventListeners";
 export const renderDetailedPage = () => {
     const wrapper = `<div class="detailed">
     <nav class="menuDetailed">
-<i class="fas fa-arrow-left"></i>
+<i class="fas fa-arrow-left" id="detailedPage-arrow"></i>
 <div id="menuToggle">
           <input type="checkbox" />
           <span></span>
@@ -85,7 +85,7 @@ export const renderDetailedPage = () => {
 </div>
 
 </div>
-<div class="hamburger-menu">
+ <div class="hamburger-menu">
     <input id="menu__toggle" type="checkbox" />
     <label class="menu__btn" for="menu__toggle">
       <span class="filterButton">Filter</span>
@@ -108,5 +108,4 @@ export const renderDetailedPage = () => {
     document.querySelector(".mainContainer").innerHTML = wrapper; //nkarec, hin@ jnjec
 
     detailedPageEventListeners(); //eventa kaxum productMenui mej
-
 }
