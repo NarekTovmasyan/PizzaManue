@@ -11,7 +11,7 @@ export const renderGeneralMenuPage = () => { //nkaruma 2 ej@
           <span></span>
           <span></span>
           <ul id="menu">
-            <a class="detailedBurgerA" id="hamburger-Contact">
+            <a class="detailedBurgerA" id="hamburger-TableID">
             <li>TableID</li>
             </a>
             <a class="detailedBurgerA" id ="hamburger-Detailed">

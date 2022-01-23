@@ -15,7 +15,7 @@ export const renderDetailedPage = () => {
             <a class="detailedBurgerA" id="hamburger-Contact">
             <li>TableID</li>
             </a>
-            <a class="detailedBurgerA">
+            <a class="detailedBurgerA backHome" >
               <li><i class="fas fa-home"></i></li>
             </a>
             <a class="detailedBurgerA" id="hamburger-Product">

@@ -15,24 +15,24 @@ import { renderTablePage } from "../views/table";
 //2qayl
 let value;
 export const tableEventListeners = () => {
-        document.querySelector(".connectToTable").addEventListener("click", function() {
-            if (!Number.isNaN(Number(value))) {
-                setCookies("tableName", value);
-                renderGeneralMenuPage();
-            } else {
-                alert("please enter your table number");
-            }
-        })
-        let selectedValue = document.querySelector("#selectTable")
-        selectedValue.addEventListener("change", function() {
-            value = this.value;
-        });
-        // let inputButton = document.querySelector(".connectToTable") //kpnuma kochakin
-        //     inputButton.onclick = renderGeneralMenuPage; //ete evenlistener chmiacnei oncklik cher lini
-        //     //henc onklik lini inputButon@ kashxati es renderGeneralMenuPage funkcian
+    document.querySelector(".connectToTable").addEventListener("click", function() {
+        if (!Number.isNaN(Number(value))) {
+            setCookies("tableName", value);
+            renderGeneralMenuPage();
+        } else {
+            alert("please enter your table number");
+        }
+    })
+    let selectedValue = document.querySelector("#selectTable")
+    selectedValue.addEventListener("change", function() {
+        value = this.value;
+    });
+    //let inputButton = document.querySelector(".connectToTable") //kpnuma kochakin
+    //inputButton.onclick = renderGeneralMenuPage; //ete evenlistener chmiacnei oncklik cher lini
+    //henc onklik lini inputButon@ kashxati es renderGeneralMenuPage funkcian
+}
 
-    }
-    //4qayl
+//4qayl
 export const generalMenuEventListeners = () => {
         //querySelectorAll vercnuma sax nuyn clasov elementner@ u veradardznuma array
         document.querySelectorAll(".productsGeneralMenu").forEach(function(element, i, array) {
@@ -56,7 +56,8 @@ export const detailedPageEventListeners = () => {
     document.querySelectorAll(".cardDetailed").forEach(function(element) {
         element.onclick = renderProductMenuPage;
     })
-    document.querySelector(".detailedBurgerA").addEventListener("click", function() {
+    document.querySelector(".detailedBurgerA.backHome").addEventListener("click", function() {
+        console.log("4");
         renderGeneralMenuPage();
     });
     document.querySelector("#hamburger-Product").addEventListener("click", function() {
@@ -78,7 +79,7 @@ export const productMenuEventListeners = () => {
     document.querySelector(".addBasketButton").addEventListener("click", function() {
         renderBasketPage();
     });
-    document.querySelector(".detailedBurgerA").addEventListener("click", function() {
+    document.querySelector(".detailedBurgerA.backHome").addEventListener("click", function() {
         renderGeneralMenuPage();
     });
     document.querySelector("#hamburger-Detailed").addEventListener("click", function() {
@@ -94,7 +95,7 @@ export const basketEventListeners = () => {
     document.getElementById("basket-arrow").addEventListener("click", function() {
         renderProductMenuPage();
     });
-    document.querySelector(".detailedBurgerA").addEventListener("click", function() {
+    document.querySelector(".detailedBurgerA.backHome").addEventListener("click", function() {
         renderGeneralMenuPage();
     });
     document.querySelector("#hamburger-Detailed").addEventListener("click", function() {
