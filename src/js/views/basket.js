@@ -10,8 +10,11 @@ export const renderBasketPage = () => {
           <span></span>
           <span></span>
           <ul id="menu">
+            <a class="detailedBurgerA" id="hamburger-Contact">
+            <li>TableID</li>
+            </a>
             <a class="detailedBurgerA">
-              <li>Home</li>
+              <li><i class="fas fa-home"></i></li>
             </a>
             <a class="detailedBurgerA" id="hamburger-Product">
               <li>Product</li>
@@ -21,6 +24,9 @@ export const renderBasketPage = () => {
             </a>
             <a class="detailedBurgerA" id="hamburger-Contact">
               <li>Contact</li>
+            </a>
+            <a class="detailedBurgerA" id="hamburger-Delete">
+              <li><i class="fas fa-trash-alt"></i></li>
             </a>
           </ul>
         </div>

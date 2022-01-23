@@ -1,3 +1,4 @@
+import { setCookies } from "./localStorage";
 //4qayl
 import { renderDetailedPage } from "../views/detailed";
 
@@ -10,19 +11,21 @@ import { renderBasketPage } from "../views/basket";
 
 import { renderTablePage } from "../views/table";
 
-//2qayl
-export const tableEventListeners = () => {
 
-        let selectedValue = document.querySelector("#selectTable")
-        selectedValue.addEventListener("change", function() {
-            let value = this.value;
-            if (typeof Number(value) === "number") {
-                document.querySelector(".connectToTable").addEventListener("click", function() {
-                    renderGeneralMenuPage();
-                })
+//2qayl
+let value;
+export const tableEventListeners = () => {
+        document.querySelector(".connectToTable").addEventListener("click", function() {
+            if (!Number.isNaN(Number(value))) {
+                setCookies("tableName", value);
+                renderGeneralMenuPage();
             } else {
                 alert("please enter your table number");
             }
+        })
+        let selectedValue = document.querySelector("#selectTable")
+        selectedValue.addEventListener("change", function() {
+            value = this.value;
         });
         // let inputButton = document.querySelector(".connectToTable") //kpnuma kochakin
         //     inputButton.onclick = renderGeneralMenuPage; //ete evenlistener chmiacnei oncklik cher lini
@@ -42,7 +45,6 @@ export const generalMenuEventListeners = () => {
             renderProductMenuPage();
         });
         document.querySelector("#hamburger-Basket").addEventListener("click", function() {
-
             renderBasketPage();
         });
     }
@@ -62,6 +64,9 @@ export const detailedPageEventListeners = () => {
     });
     document.querySelector("#hamburger-Basket").addEventListener("click", function() {
         renderBasketPage();
+    });
+    document.querySelector("#detailedPage-arrow").addEventListener("click", function() {
+        renderGeneralMenuPage();
     });
 }
 
