@@ -141,10 +141,8 @@ body {
 }
 
 .menu__btn {
-    margin-top: 640px;
-    position: fixed;
-    top: 20px;
-    left: 20px;
+    position: absolute;
+    bottom: 10px;
     width: 26px;
     height: 26px;
     cursor: pointer;

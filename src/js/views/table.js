@@ -10,7 +10,7 @@ export const renderTablePage = () => {
     const wrapper = `<div class = "table"> 
     <div class="containerTable">
     <select name="tables" id="selectTable" class="tables">
-        <option value="Սեղանի համար"selected>Սեղանի համար</option>  
+        <option selected hidden>Սեղանի համար</option>  
         <option id ="selectedNumber-ofTable" value="1">1</option>  
         <option id ="selectedNumber-ofTable" value="2">2</option>
         <option id ="selectedNumber-ofTable" value="3">3</option>

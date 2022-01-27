@@ -1,33 +1,12 @@
 //4qayl
 import { generalMenuEventListeners } from "../helpers/eventListeners";
+import { renderHamburger } from "../helpers/rightButton";
 
 //3qayl
 export const renderGeneralMenuPage = () => { //nkaruma 2 ej@
     const wrapper = `<div class="generalMenu">
       <nav class="hiddenMenuGeneralMenu">
-        <div id="menuToggle">
-          <input type="checkbox" />
-          <span></span>
-          <span></span>
-          <span></span>
-          <ul id="menu">
-            <a class="detailedBurgerA" id="hamburger-TableID">
-            <li>TableID</li>
-            </a>
-            <a class="detailedBurgerA" id ="hamburger-Detailed">
-              <li>Detailed</li>
-            </a>
-            <a class="detailedBurgerA" id ="hamburger-Product">
-              <li>Product</li>
-            </a>
-            <a class="detailedBurgerA" id ="hamburger-Basket">
-              <li><i class="fas fa-shopping-basket"></i></li>
-            </a>
-            <a class="detailedBurgerA" id ="hamburger-Contact">
-              <li>Contact</li>
-            </a>
-          </ul>
-        </div>
+       
       </nav>
       <div class="yndhanurGeneralMenu">
         <div class="grid-containerGeneralMenu">
@@ -59,7 +38,9 @@ export const renderGeneralMenuPage = () => { //nkaruma 2 ej@
     </ul>
   </div>
     </div>`
+
     document.querySelector(".mainContainer").innerHTML = wrapper; //naxord@ jnjuma taza html nkaruma
+    renderHamburger();
     generalMenuEventListeners(); //nkareluc heto noric evenlisenera kaxum
 
 }

@@ -1,4 +1,6 @@
 import { setCookies } from "./localStorage";
+import { getCookies } from "./localStorage";
+// import { checkCookies } from "./localStorage";
 //4qayl
 import { renderDetailedPage } from "../views/detailed";
 
@@ -18,6 +20,8 @@ export const tableEventListeners = () => {
     document.querySelector(".connectToTable").addEventListener("click", function() {
         if (!Number.isNaN(Number(value))) {
             setCookies("tableName", value);
+            getCookies("tableName");
+            console.log("getCookie", getCookies("tableName"));
             renderGeneralMenuPage();
         } else {
             alert("please enter your table number");
