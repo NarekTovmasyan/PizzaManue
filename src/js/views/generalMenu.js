@@ -5,7 +5,7 @@ import { renderHamburger } from "../helpers/rightButton";
 //3qayl
 export const renderGeneralMenuPage = () => { //nkaruma 2 ej@
     const wrapper = `<div class="generalMenu">
-      <nav class="hiddenMenuGeneralMenu">
+      <nav class="hiddenMenuGeneralMenu" id="rightSideButton">
        
       </nav>
       <div class="yndhanurGeneralMenu">
@@ -40,7 +40,6 @@ export const renderGeneralMenuPage = () => { //nkaruma 2 ej@
     </div>`
 
     document.querySelector(".mainContainer").innerHTML = wrapper; //naxord@ jnjuma taza html nkaruma
-    renderHamburger();
+    renderHamburger(0);
     generalMenuEventListeners(); //nkareluc heto noric evenlisenera kaxum
-
 }

@@ -13,16 +13,19 @@ import { renderBasketPage } from "../views/basket";
 
 import { renderTablePage } from "../views/table";
 
+import router from "../routing";
+
 
 //2qayl
 let value;
 export const tableEventListeners = () => {
     document.querySelector(".connectToTable").addEventListener("click", function() {
+        debugger
         if (!Number.isNaN(Number(value))) {
             setCookies("tableName", value);
-            getCookies("tableName");
-            console.log("getCookie", getCookies("tableName"));
-            renderGeneralMenuPage();
+            // getCookies("tableName");
+            router.redirect("/general_menu");
+            // renderGeneralMenuPage();
         } else {
             alert("please enter your table number");
         }

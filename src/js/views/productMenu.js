@@ -1,37 +1,13 @@
 import { productMenuEventListeners } from "../helpers/eventListeners";
-
+import { renderHamburger } from "../helpers/rightButton";
 //5qayl
 export const renderProductMenuPage = () => {
     const wrapper = `<div class="productMenuBody">
     <div class="main-block">
     <header>
       <div><i class="fas fa-arrow-left" id="productMenu-arrow"></i></div>
-       <nav >
-        <div id="menuToggle">
-          <input type="checkbox" />
-          <span></span>
-          <span></span>
-          <span></span>
-          <ul id="menu">
-            <a class="detailedBurgerA" id="hamburger-Contact">
-            <li>TableID</li>
-            </a>
-            <a class="detailedBurgerA backHome" >
-              <li><i class="fas fa-home"></i></li>
-            </a>
-            <a class="detailedBurgerA" id="hamburger-Detailed">
-              <li>Detailed</li>
-            </a>
-            <a class="detailedBurgerA" id="hamburger-Basket">
-              <li><i class="fas fa-shopping-basket"></i></li>
-            </a>
-            <a class="detailedBurgerA" id="hamburger-Contact">
-              <li>Contact</li>
-            <a class="detailedBurgerA" id="hamburger-Delete">
-              <li><i class="fas fa-trash-alt"></i></li>
-            </a>
-          </ul>
-        </div>
+       <nav class="hiddenMenuGeneralMenu">
+        
       </nav>
     </header>
     <main>
@@ -61,5 +37,6 @@ export const renderProductMenuPage = () => {
     </div>
   </div>`
     document.querySelector(".mainContainer").innerHTML = wrapper; //nkaruma
+    renderHamburger(2);
     productMenuEventListeners();
 }

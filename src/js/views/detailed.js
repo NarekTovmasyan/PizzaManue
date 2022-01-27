@@ -1,37 +1,14 @@
 //5qayl
 import { detailedPageEventListeners } from "../helpers/eventListeners";
-
+import { renderHamburger } from "../helpers/rightButton";
 //4qayl
 export const renderDetailedPage = () => {
     const wrapper = `<div class="detailed">
     <nav class="menuDetailed">
 <i class="fas fa-arrow-left" id="detailedPage-arrow"></i>
-<div id="menuToggle">
-          <input type="checkbox" />
-          <span></span>
-          <span></span>
-          <span></span>
-          <ul id="menu">
-            <a class="detailedBurgerA" id="hamburger-Contact">
-            <li>TableID</li>
-            </a>
-            <a class="detailedBurgerA backHome" >
-              <li><i class="fas fa-home"></i></li>
-            </a>
-            <a class="detailedBurgerA" id="hamburger-Product">
-              <li>Product</li>
-            </a>
-            <a class="detailedBurgerA" id="hamburger-Basket">
-              <li><i class="fas fa-shopping-basket"></i></li>
-            </a>
-            <a class="detailedBurgerA" id="hamburger-Contact">
-              <li>Contact</li>
-            </a>
-            <a class="detailedBurgerA" id="hamburger-Delete">
-            <li><i class="fas fa-trash-alt"></i></li>
-            </a>
-          </ul>
-        </div>
+<div class="hiddenMenuGeneralMenu">
+
+</div>
 </nav>5
 <div class="parent-containerDetailed">
 <div class="card-containerDetailed">
@@ -112,6 +89,6 @@ export const renderDetailedPage = () => {
   </div>
 </div>`
     document.querySelector(".mainContainer").innerHTML = wrapper; //nkarec, hin@ jnjec
-
+    renderHamburger(1);
     detailedPageEventListeners(); //eventa kaxum productMenui mej
 }
