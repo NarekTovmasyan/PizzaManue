@@ -15,16 +15,16 @@ import { renderTablePage } from "../views/table";
 
 import router from "../routing";
 
-
 //2qayl
 let value;
 export const tableEventListeners = () => {
     document.querySelector(".connectToTable").addEventListener("click", function() {
-        debugger
         if (!Number.isNaN(Number(value))) {
             setCookies("tableName", value);
+            debugger
             // getCookies("tableName");
             router.redirect("/general_menu");
+
             // renderGeneralMenuPage();
         } else {
             alert("please enter your table number");
@@ -42,8 +42,12 @@ export const tableEventListeners = () => {
 //4qayl
 export const generalMenuEventListeners = () => {
         //querySelectorAll vercnuma sax nuyn clasov elementner@ u veradardznuma array
-        document.querySelectorAll(".productsGeneralMenu").forEach(function(element, i, array) {
-            element.onclick = renderDetailedPage;
+        document.querySelectorAll(".productsGeneralMenu").forEach(function(element) {
+            //element.onclick = renderDetailedPage; chishta ashxatum aranc pakagci ()
+            // element.onclick = router.redirect(`/general_menu/${element.id}`); sxala ashxatum, vortev ()kanchaca arden
+            element.addEventListener("click", function() {
+                router.redirect(`/general_menu/${this.id}`);
+            });
         });
         document.querySelector("#hamburger-Detailed").addEventListener("click", function() {
             renderDetailedPage();
@@ -56,12 +60,16 @@ export const generalMenuEventListeners = () => {
         });
     }
     //5qayl
-export const detailedPageEventListeners = () => {
+
+export const detailedPageEventListeners = (type) => {
     document.querySelector("#detailedPage-arrow").addEventListener("click", function() {
-        renderGeneralMenuPage();
+        //renderGeneralMenuPage();
+        router.redirect("/general_menu");
     });
     document.querySelectorAll(".cardDetailed").forEach(function(element) {
-        element.onclick = renderProductMenuPage;
+        element.addEventListener("click", function() {
+            router.redirect(`/general_menu/${type}/${this.id}`);
+        });
     })
     document.querySelector(".detailedBurgerA.backHome").addEventListener("click", function() {
         console.log("4");
@@ -81,10 +89,10 @@ export const detailedPageEventListeners = () => {
 
 export const productMenuEventListeners = () => {
     document.querySelector("#productMenu-arrow").addEventListener("click", function() {
-        renderDetailedPage();
+        window.history.back();
     });
     document.querySelector(".addBasketButton").addEventListener("click", function() {
-        renderBasketPage();
+        router.redirect("/basket_menu");
     });
     document.querySelector(".detailedBurgerA.backHome").addEventListener("click", function() {
         renderGeneralMenuPage();

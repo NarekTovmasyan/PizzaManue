@@ -1,10 +1,5 @@
 import { tableEventListeners } from "../helpers/eventListeners";
 
-// function renderTablePage(){
-//     const wrpper=1;
-// }
-//export {renderTablePage}
-
 //1qayl
 export const renderTablePage = () => {
     const wrapper = `<div class = "table"> 

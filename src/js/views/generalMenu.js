@@ -10,12 +10,12 @@ export const renderGeneralMenuPage = () => { //nkaruma 2 ej@
       </nav>
       <div class="yndhanurGeneralMenu">
         <div class="grid-containerGeneralMenu">
-          <a href="#" class="productsGeneralMenu"><p>Տաք ուտեստներ</p></a>
-          <a href="#" class="productsGeneralMenu"><p>Խորտիկներ</p></a>
-          <a href="#" class="productsGeneralMenu"><p>Քաղցրավենիք</p></a>
-          <a href="#" class="productsGeneralMenu"><p>Ըմպելիք</p></a>
-          <a href="#" class="productsGeneralMenu"><p>Պիցցաներ</p></a>
-          <a href="#" class="productsGeneralMenu"><p>Աղցաններ</p></a>
+          <a class="productsGeneralMenu" id="hot_dishes"><p>Տաք ուտեստներ</p></a>
+          <a class="productsGeneralMenu" id="snacks"><p>Խորտիկներ</p></a>
+          <a class="productsGeneralMenu" id="sweets"><p>Քաղցրավենիք</p></a>
+          <a class="productsGeneralMenu" id="drink"><p>Ըմպելիք</p></a>
+          <a class="productsGeneralMenu" id="pizza"><p>Պիցցաներ</p></a>
+          <a class="productsGeneralMenu" id="salads"><p>Աղցաններ</p></a>
         </div>
       </div>
       <div class="hamburger-menu">
@@ -23,7 +23,6 @@ export const renderGeneralMenuPage = () => { //nkaruma 2 ej@
     <label class="menu__btn" for="menu__toggle">
       <span class="filterButton">Filter</span>
     </label>
-    
     <ul class="menu__box">
       <h1 class="filterWindowName">FILTER</h1>
       <div class="parentInput">
@@ -38,7 +37,7 @@ export const renderGeneralMenuPage = () => { //nkaruma 2 ej@
     </ul>
   </div>
     </div>`
-
+    debugger
     document.querySelector(".mainContainer").innerHTML = wrapper; //naxord@ jnjuma taza html nkaruma
     renderHamburger(0);
     generalMenuEventListeners(); //nkareluc heto noric evenlisenera kaxum

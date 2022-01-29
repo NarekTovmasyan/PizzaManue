@@ -2,7 +2,7 @@
 import { detailedPageEventListeners } from "../helpers/eventListeners";
 import { renderHamburger } from "../helpers/rightButton";
 //4qayl
-export const renderDetailedPage = () => {
+export const renderDetailedPage = (type) => {
     const wrapper = `<div class="detailed">
     <nav class="menuDetailed">
 <i class="fas fa-arrow-left" id="detailedPage-arrow"></i>
@@ -13,7 +13,7 @@ export const renderDetailedPage = () => {
 <div class="parent-containerDetailed">
 <div class="card-containerDetailed">
 
-    <div class="cardDetailed">
+    <div class="cardDetailed" id="chees_pizza">
         <div><img class="card2Detailed" src="./img/pizza1.png"/></div>
         <div class="line">
             <p class="detailedCardsWords"> Cheese Pizza <br> 1pcs: 300֏ </p>
@@ -29,7 +29,7 @@ export const renderDetailedPage = () => {
         </div>
     </div>
 
-    <div class="cardDetailed">
+    <div class="cardDetailed" id="pepperoni_pizza">
         <div><img class="card2Detailed" src="./img/pizza2.png"/></div>
 
         <div class="namePrice2 line">
@@ -47,7 +47,7 @@ export const renderDetailedPage = () => {
         </div>
 
     </div>
-    <div class="cardDetailed">
+    <div class="cardDetailed" id="diablo_pizza">
        <div> <img class="card2Detailed" src="./img/pizza3.png"/> </div>
 
         <div class="namePrice3 line">
@@ -80,15 +80,15 @@ export const renderDetailedPage = () => {
       <input type="text" class="searchIngredient" placeholder="Search ingredients..." />
       <button class="searchButton"><i class="fas fa-search"></i></button>
       </div>
-      <li><a class="menu__item" href="#">Chees</a></li>
-      <li><a class="menu__item" href="#">Tomato</a></li>
-      <li><a class="menu__item" href="#">Ketchup</a></li>
-      <li><a class="menu__item" href="#">Mushroom</a></li>
-      <li><a class="menu__item" href="#">Maiones</a></li>
+      <li><a class="menu__item">Chees</a></li>
+      <li><a class="menu__item">Tomato</a></li>
+      <li><a class="menu__item">Ketchup</a></li>
+      <li><a class="menu__item">Mushroom</a></li>
+      <li><a class="menu__item">Maiones</a></li>
     </ul>
   </div>
 </div>`
     document.querySelector(".mainContainer").innerHTML = wrapper; //nkarec, hin@ jnjec
     renderHamburger(1);
-    detailedPageEventListeners(); //eventa kaxum productMenui mej
+    detailedPageEventListeners(type); //eventa kaxum productMenui mej
 }
