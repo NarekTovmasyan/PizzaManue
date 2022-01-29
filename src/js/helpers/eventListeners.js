@@ -40,7 +40,7 @@ export const tableEventListeners = () => {
 }
 
 //4qayl
-export const generalMenuEventListeners = () => {
+export const generalMenuEventListeners = (type) => {
         //querySelectorAll vercnuma sax nuyn clasov elementner@ u veradardznuma array
         document.querySelectorAll(".productsGeneralMenu").forEach(function(element) {
             //element.onclick = renderDetailedPage; chishta ashxatum aranc pakagci ()
@@ -50,10 +50,13 @@ export const generalMenuEventListeners = () => {
             });
         });
         document.querySelector("#hamburger-Detailed").addEventListener("click", function() {
-            renderDetailedPage();
+            router.redirect(`/general_menu/${type}`);
         });
         document.querySelector("#hamburger-Product").addEventListener("click", function() {
-            renderProductMenuPage();
+
+            router.redirect(`/general_menu/${type}/${this.id}`); /////////////////////////////////
+            window.history.back(); ////////////////////
+
         });
         document.querySelector("#hamburger-Basket").addEventListener("click", function() {
             renderBasketPage();
@@ -86,7 +89,7 @@ export const detailedPageEventListeners = (type) => {
     });
 }
 
-
+let join;
 export const productMenuEventListeners = () => {
     document.querySelector("#productMenu-arrow").addEventListener("click", function() {
         window.history.back();
@@ -98,7 +101,11 @@ export const productMenuEventListeners = () => {
         renderGeneralMenuPage();
     });
     document.querySelector("#hamburger-Detailed").addEventListener("click", function() {
-        renderDetailedPage();
+        let hash = window.location.hash;
+        let splitHash = hash.split("/");
+        splitHash.pop();
+        join = splitHash.join("/");
+        router.redirect(`${join}`);
     });
     document.querySelector("#hamburger-Basket").addEventListener("click", function() {
         renderBasketPage();
@@ -117,6 +124,7 @@ export const basketEventListeners = () => {
         renderDetailedPage();
     });
     document.querySelector("#hamburger-Product").addEventListener("click", function() {
-        renderProductMenuPage();
+        router.redirect(`${join}`);
+        // renderProductMenuPage();
     });
 }

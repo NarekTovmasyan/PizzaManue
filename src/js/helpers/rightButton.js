@@ -13,7 +13,7 @@ function readArrayInButton(skipIndex) {
       id = "hamburger-Detailed">
       <li> Detailed </li> </a>`;
 
-    const productPage = `<a class = "detailedBurgerA" id = "hamburger-Product">
+    const productPage = `<a class = "detailedBurgerA" id="hamburger-Product">
         <li> Product </li> </a>`;
 
     const basketPage = `

@@ -7,7 +7,6 @@ import router from "./js/routing";
 // cookies();
 const hash = window.location.hash;
 if (getCookies("tableName") != "") {
-    debugger
     let hashString = (hash.indexOf("#") >= 0 &&
         hash.split("#")[1] != "/") ? hash.split("#")[1] : "/general_menu";
     router.redirect(hashString);
