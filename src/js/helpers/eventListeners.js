@@ -101,11 +101,12 @@ export const productMenuEventListeners = () => {
         renderGeneralMenuPage();
     });
     document.querySelector("#hamburger-Detailed").addEventListener("click", function() {
-        let hash = window.location.hash;
-        let splitHash = hash.split("/");
-        splitHash.pop();
-        join = splitHash.join("/");
-        router.redirect(`${join}`);
+        window.history.back();
+        // let hash = window.location.hash;
+        // let splitHash = hash.split("/");
+        // splitHash.pop();
+        // join = splitHash.join("/");
+        // router.redirect(`${join}`);
     });
     document.querySelector("#hamburger-Basket").addEventListener("click", function() {
         renderBasketPage();
@@ -115,16 +116,18 @@ export const productMenuEventListeners = () => {
 export const basketEventListeners = () => {
 
     document.getElementById("basket-arrow").addEventListener("click", function() {
-        renderProductMenuPage();
+        window.history.back();
+        // renderProductMenuPage();
     });
     document.querySelector(".detailedBurgerA.backHome").addEventListener("click", function() {
-        renderGeneralMenuPage();
+        window.history.go(-3);
+        //renderGeneralMenuPage();
     });
     document.querySelector("#hamburger-Detailed").addEventListener("click", function() {
-        renderDetailedPage();
+        window.history.go(-2);
     });
     document.querySelector("#hamburger-Product").addEventListener("click", function() {
-        router.redirect(`${join}`);
-        // renderProductMenuPage();
+        window.history.back();
+        //renderProductMenuPage();
     });
 }
