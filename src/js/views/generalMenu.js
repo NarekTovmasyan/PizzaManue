@@ -37,7 +37,6 @@ export const renderGeneralMenuPage = () => { //nkaruma 2 ej@
     </ul>
   </div>
     </div>`
-    debugger
     document.querySelector(".mainContainer").innerHTML = wrapper; //naxord@ jnjuma taza html nkaruma
     renderHamburger(0);
     generalMenuEventListeners(); //nkareluc heto noric evenlisenera kaxum

@@ -39,6 +39,6 @@ export const renderBasketPage = () => {
 </div>`
 
     document.querySelector(".mainContainer").innerHTML = wrapper;
-    renderHamburger(3);
+    renderHamburger(1);
     basketEventListeners();
 }

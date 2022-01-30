@@ -9,23 +9,19 @@ import { renderBasketPage } from "./views/basket";
 let router = new Router();
 
 router.addRoute("/", function() {
-
     renderTablePage();
 });
 
 router.addRoute("/general_menu", function() {
-
     renderGeneralMenuPage();
 });
 
 router.addRoute("/general_menu/:product", function(event) {
-
     console.log(event.params);
     renderDetailedPage(event.params.product);
 });
 
 router.addRoute("/general_menu/:product/:title", function(event) {
-    debugger
     console.log(event.params);
     renderProductMenuPage();
 });

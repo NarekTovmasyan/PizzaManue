@@ -1,5 +1,6 @@
 import { setCookies } from "./localStorage";
 import { getCookies } from "./localStorage";
+import { deleteCookies } from "./localStorage";
 // import { checkCookies } from "./localStorage";
 //4qayl
 import { renderDetailedPage } from "../views/detailed";
@@ -21,7 +22,6 @@ export const tableEventListeners = () => {
     document.querySelector(".connectToTable").addEventListener("click", function() {
         if (!Number.isNaN(Number(value))) {
             setCookies("tableName", value);
-            debugger
             // getCookies("tableName");
             router.redirect("/general_menu");
 
@@ -49,47 +49,44 @@ export const generalMenuEventListeners = (type) => {
                 router.redirect(`/general_menu/${this.id}`);
             });
         });
-        document.querySelector("#hamburger-Detailed").addEventListener("click", function() {
-            router.redirect(`/general_menu/${type}`);
-        });
-        document.querySelector("#hamburger-Product").addEventListener("click", function() {
-
-            router.redirect(`/general_menu/${type}/${this.id}`); /////////////////////////////////
-            window.history.back(); ////////////////////
-
-        });
-        document.querySelector("#hamburger-Basket").addEventListener("click", function() {
-            renderBasketPage();
-        });
+        hamburgerEventListener();
+        // document.querySelector("#hamburger-Detailed").addEventListener("click", function() {
+        //     router.redirect(`/general_menu/${type}`);
+        // });
+        // document.querySelector("#hamburger-Product").addEventListener("click", function() {
+        //     router.redirect(`/general_menu/${type}/${this.id}`); /////////////////////////////////
+        //     window.history.back(); ////////////////////
+        // });
+        // document.querySelector("#hamburger-Basket").addEventListener("click", function() {
+        //     router.redirect("/basket_menu");
+        // });
     }
     //5qayl
 
 export const detailedPageEventListeners = (type) => {
     document.querySelector("#detailedPage-arrow").addEventListener("click", function() {
-        //renderGeneralMenuPage();
-        router.redirect("/general_menu");
+        renderGeneralMenuPage();
+        //window.history.back()
     });
     document.querySelectorAll(".cardDetailed").forEach(function(element) {
         element.addEventListener("click", function() {
             router.redirect(`/general_menu/${type}/${this.id}`);
         });
     })
-    document.querySelector(".detailedBurgerA.backHome").addEventListener("click", function() {
-        console.log("4");
-        renderGeneralMenuPage();
-    });
-    document.querySelector("#hamburger-Product").addEventListener("click", function() {
-        renderProductMenuPage();
-    });
-    document.querySelector("#hamburger-Basket").addEventListener("click", function() {
-        renderBasketPage();
-    });
-    document.querySelector("#detailedPage-arrow").addEventListener("click", function() {
-        renderGeneralMenuPage();
-    });
-}
 
-let join;
+    // document.querySelector(".detailedBurgerA.backHome").addEventListener("click", function() {
+    //     renderGeneralMenuPage();
+    // });
+    // document.querySelector("#hamburger-Product").addEventListener("click", function() {
+    //     renderProductMenuPage();
+    // });
+
+    document.querySelector("#detailedPage-arrow").addEventListener("click", function() {
+        //renderGeneralMenuPage();
+        window.history.back(); ///////////////
+    });
+    hamburgerEventListener();
+}
 export const productMenuEventListeners = () => {
     document.querySelector("#productMenu-arrow").addEventListener("click", function() {
         window.history.back();
@@ -97,20 +94,20 @@ export const productMenuEventListeners = () => {
     document.querySelector(".addBasketButton").addEventListener("click", function() {
         router.redirect("/basket_menu");
     });
-    document.querySelector(".detailedBurgerA.backHome").addEventListener("click", function() {
-        renderGeneralMenuPage();
-    });
-    document.querySelector("#hamburger-Detailed").addEventListener("click", function() {
-        window.history.back();
-        // let hash = window.location.hash;
-        // let splitHash = hash.split("/");
-        // splitHash.pop();
-        // join = splitHash.join("/");
-        // router.redirect(`${join}`);
-    });
-    document.querySelector("#hamburger-Basket").addEventListener("click", function() {
-        renderBasketPage();
-    });
+    // document.querySelector(".detailedBurgerA.backHome").addEventListener("click", function() {
+    //     //renderGeneralMenuPage();
+    //     window.history.go(-2); //////////////////////
+    // });
+    // document.querySelector("#hamburger-Detailed").addEventListener("click", function() {
+    //     window.history.back();
+    //     // let hash = window.location.hash;
+    //     // let splitHash = hash.split("/");
+    //     // splitHash.pop();
+    //     // join = splitHash.join("/");
+    //     // router.redirect(`${join}`);
+    // });
+    hamburgerEventListener();
+
 }
 
 export const basketEventListeners = () => {
@@ -119,15 +116,41 @@ export const basketEventListeners = () => {
         window.history.back();
         // renderProductMenuPage();
     });
-    document.querySelector(".detailedBurgerA.backHome").addEventListener("click", function() {
-        window.history.go(-3);
-        //renderGeneralMenuPage();
-    });
-    document.querySelector("#hamburger-Detailed").addEventListener("click", function() {
-        window.history.go(-2);
-    });
-    document.querySelector("#hamburger-Product").addEventListener("click", function() {
-        window.history.back();
-        //renderProductMenuPage();
-    });
+    hamburgerEventListener();
+
+    // document.querySelector("#hamburger-Detailed").addEventListener("click", function() {
+    //     // window.history.go(-2);
+    //     router.redirect(`/general_menu/${type}`)
+    // });
+    // document.querySelector("#hamburger-Product").addEventListener("click", function() {
+
+    //     let history = window.history.back();
+    //     if (history != "") {
+    //         window.history.back();
+    //     }
+    //     renderProductMenuPage();
+    // });
+}
+
+const hamburgerEventListener = () => {
+    if (document.querySelector("#hamburger-deleteTable")) {
+        document.querySelector("#hamburger-deleteTable").addEventListener("click", function() {
+            deleteCookies("tableName");
+            router.redirect("/");
+        });
+    }
+    if (document.querySelector(".detailedBurgerA.backHome")) {
+        document.querySelector(".detailedBurgerA.backHome").addEventListener("click", function() {
+            router.redirect("/general_menu");
+            //renderGeneralMenuPage();
+        });
+    }
+
+    if (document.querySelector("#hamburger-Basket")) {
+        document.querySelector("#hamburger-Basket").addEventListener("click", function() {
+            router.redirect("/basket_menu");
+        });
+    }
+
+
 }

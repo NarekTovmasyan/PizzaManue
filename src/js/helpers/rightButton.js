@@ -8,13 +8,13 @@ function readArrayInButton(skipIndex) {
           <li><i class="fas fa-home"></i></li>
           </a>`;
 
-    const detailedPage = `
-      <a class = "detailedBurgerA"
-      id = "hamburger-Detailed">
-      <li> Detailed </li> </a>`;
+    // const detailedPage = `
+    //   <a class = "detailedBurgerA"
+    //   id = "hamburger-Detailed">
+    //   <li> Detailed </li> </a>`;
 
-    const productPage = `<a class = "detailedBurgerA" id="hamburger-Product">
-        <li> Product </li> </a>`;
+    // const productPage = `<a class = "detailedBurgerA" id="hamburger-Product">
+    //     <li> Product </li> </a>`;
 
     const basketPage = `
        <a class = "detailedBurgerA"
@@ -22,7 +22,10 @@ function readArrayInButton(skipIndex) {
        <li> <i class = "fas fa-shopping-basket" > </i></li>
        </a>`;
 
-    let array = [generalMenuPage, detailedPage, productPage, basketPage];
+    const deleteTable = `<a class = "detailedBurgerA" id="hamburger-deleteTable">
+        <li> Exit </li> </a>`;
+
+    let array = [generalMenuPage, basketPage, deleteTable]; //et uxem hamburgeris mej avelana product@ ev detailedPage arrayi mej avelavnem  productPage 4 element
     const colectedHamburger = array.reduce(function(agregation, currentValue, currentIndex) {
 
         if (currentIndex !== skipIndex) {
@@ -41,7 +44,7 @@ export const renderHamburger = (skipedList) => {
     <span></span>
     <ul id="menu">
       <a class="detailedBurgerA" id="hamburger-TableID">
-      <li>TableID ${tableName}</li>
+      <li>TableID ${getCookies("tableName")}</li>
       </a>`;
     hamburgerButton += readArrayInButton(skipedList);
     // <a class="detailedBurgerA" id ="hamburger-Contact">
@@ -49,5 +52,4 @@ export const renderHamburger = (skipedList) => {
     // </a>
     hamburgerButton += `</ul> </div > `;
     document.querySelector(".hiddenMenuGeneralMenu").innerHTML = hamburgerButton;
-
 }

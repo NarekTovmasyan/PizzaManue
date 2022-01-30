@@ -89,6 +89,6 @@ export const renderDetailedPage = (type) => {
   </div>
 </div>`
     document.querySelector(".mainContainer").innerHTML = wrapper; //nkarec, hin@ jnjec
-    renderHamburger(1);
+    renderHamburger();
     detailedPageEventListeners(type); //eventa kaxum productMenui mej
 }

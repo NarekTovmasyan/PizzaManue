@@ -40,3 +40,9 @@ export const getCookies = (cname) => {
     //         }
     //     }
     // }
+
+export const deleteCookies = (name) => {
+    setCookies(name, "", {
+        'max-age': -1
+    })
+}

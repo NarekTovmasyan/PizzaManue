@@ -37,6 +37,6 @@ export const renderProductMenuPage = () => {
     </div>
   </div>`
     document.querySelector(".mainContainer").innerHTML = wrapper; //nkaruma
-    renderHamburger(2);
+    renderHamburger();
     productMenuEventListeners();
 }
