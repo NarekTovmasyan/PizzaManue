@@ -42,10 +42,13 @@ export const tableEventListeners = () => {
 //4qayl
 export const generalMenuEventListeners = (type) => {
         //querySelectorAll vercnuma sax nuyn clasov elementner@ u veradardznuma array
+
         document.querySelectorAll(".productsGeneralMenu").forEach(function(element) {
+
             //element.onclick = renderDetailedPage; chishta ashxatum aranc pakagci ()
             // element.onclick = router.redirect(`/general_menu/${element.id}`); sxala ashxatum, vortev ()kanchaca arden
             element.addEventListener("click", function() {
+
                 router.redirect(`/general_menu/${this.id}`);
             });
         });

@@ -1,24 +1,30 @@
 import { tableEventListeners } from "../helpers/eventListeners";
-
+import CONSTANTS from "../helpers/constants";
 //1qayl
 export const renderTablePage = () => {
     const wrapper = `<div class = "table"> 
     <div class="containerTable">
     <select name="tables" id="selectTable" class="tables">
         <option selected hidden>Սեղանի համար</option>  
-        <option id ="selectedNumber-ofTable" value="1">1</option>  
-        <option id ="selectedNumber-ofTable" value="2">2</option>
-        <option id ="selectedNumber-ofTable" value="3">3</option>
-        <option id ="selectedNumber-ofTable" value="4">4</option>
-        <option id ="selectedNumber-ofTable" value="5">5</option>
-        <option id ="selectedNumber-ofTable" value="6">6</option>
-        <option id ="selectedNumber-ofTable" value="7">7</option>
+        
       </select> 
       <button class="connectToTable">Ամրագրել</button> 
      </div>
      </div> `
     document.querySelector(".mainContainer").innerHTML = wrapper;
+    fetch(`${CONSTANTS.HOST}/table?url=get-all`)
+        .then(function(response) {
+            return response.json()
+        })
+        .then(function(data) {
+            console.log("then 1: ", data[0].id);
 
-    //2qayl
+            let x = data.reduce(function(prValue, elem) {
+                return prValue += `<option class="selectedNumber-ofTable" value="${elem.id}">${elem.number}</option>`;
+            }, "")
+            document.getElementById("selectTable").insertAdjacentHTML("beforeend", x);
+            // document.getElementById("selectTable").innerHTML += x;
+        })
+        //2qayl
     tableEventListeners(); //hetevuma eventnerin, mianuma eventnerin
 }

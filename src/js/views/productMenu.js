@@ -2,7 +2,7 @@ import { productMenuEventListeners } from "../helpers/eventListeners";
 import { renderHamburger } from "../helpers/rightButton";
 //5qayl
 export const renderProductMenuPage = () => {
-    const wrapper = `<div class="productMenuBody">
+        const wrapper = `<div class="productMenuBody">
     <div class="main-block">
     <header>
       <div><i class="fas fa-arrow-left" id="productMenu-arrow"></i></div>
@@ -36,7 +36,13 @@ export const renderProductMenuPage = () => {
     </main>
     </div>
   </div>`
-    document.querySelector(".mainContainer").innerHTML = wrapper; //nkaruma
-    renderHamburger();
-    productMenuEventListeners();
-}
+        document.querySelector(".mainContainer").innerHTML = wrapper; //nkaruma
+        fetch(`${CONSTANTS.HOST}/product?url=get-all-by-product-type&product_type_id=${type}`)
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                    let d = data.map(function(params) {
+                                renderHamburger();
+                                productMenuEventListeners();
+                            }

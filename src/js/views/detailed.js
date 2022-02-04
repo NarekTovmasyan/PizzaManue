@@ -1,6 +1,8 @@
 //5qayl
 import { detailedPageEventListeners } from "../helpers/eventListeners";
 import { renderHamburger } from "../helpers/rightButton";
+import CONSTANTS from "../helpers/constants";
+import { createSlugFromName } from "../helpers/helpers";
 //4qayl
 export const renderDetailedPage = (type) => {
     const wrapper = `<div class="detailed">
@@ -13,7 +15,61 @@ export const renderDetailedPage = (type) => {
 <div class="parent-containerDetailed">
 <div class="card-containerDetailed">
 
-    <div class="cardDetailed" id="chees_pizza">
+</div>
+
+</div>
+ <div class="hamburger-menu">
+    <input id="menu__toggle" type="checkbox" />
+    <label class="menu__btn" for="menu__toggle">
+      <span class="filterButton">Filter</span>
+    </label>
+    
+    <ul class="menu__box">
+      <h1 class="filterWindowName">FILTER</h1>
+      <div class="parentInput">
+      <input type="text" class="searchIngredient" placeholder="Search ingredients..." />
+      <button class="searchButton"><i class="fas fa-search"></i></button>
+      </div>
+      <li><a class="menu__item">Chees</a></li>
+      <li><a class="menu__item">Tomato</a></li>
+      <li><a class="menu__item">Ketchup</a></li>
+      <li><a class="menu__item">Mushroom</a></li>
+      <li><a class="menu__item">Maiones</a></li>
+    </ul>
+  </div>
+</div>`;
+    document.querySelector(".mainContainer").innerHTML = wrapper; //nkarec, hin@ jnjec
+    renderHamburger();
+    fetch(`${CONSTANTS.HOST}/product?url=get-all-by-product-type&product_type_id=${type}`)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            let d = data.map(function(params) {
+                return `<div class="cardDetailed card_${params.product_type_id}" id="${createSlugFromName(params.name)}">
+<div><img class="card2Detailed" src="./img/pizza1.png"/></div>
+<div class="line">
+    <p class="detailedCardsWords"> ${params.name} <br> 1pcs: ${params.price}֏ </p>
+</div>
+<div class="detailedCardIngredient1">
+    <p class="detailedCardsWords">Ingredients <br>
+        <ul class="center">
+            <li>Cheese</li>
+            <li>Tomato</li>
+            <li>Pepper</li>
+        </ul>
+    </p>
+</div>
+</div>`;
+            });
+            document.querySelector(".card-containerDetailed")
+                .insertAdjacentHTML("afterbegin", d.join(""))
+            detailedPageEventListeners(type); //eventa kaxum productMenui mej
+        });
+
+};
+
+/* <div class="cardDetailed" id="chees_pizza">
         <div><img class="card2Detailed" src="./img/pizza1.png"/></div>
         <div class="line">
             <p class="detailedCardsWords"> Cheese Pizza <br> 1pcs: 300֏ </p>
@@ -64,31 +120,4 @@ export const renderDetailedPage = (type) => {
             </p>
         </div>
 
-    </div>
-</div>
-
-</div>
- <div class="hamburger-menu">
-    <input id="menu__toggle" type="checkbox" />
-    <label class="menu__btn" for="menu__toggle">
-      <span class="filterButton">Filter</span>
-    </label>
-    
-    <ul class="menu__box">
-      <h1 class="filterWindowName">FILTER</h1>
-      <div class="parentInput">
-      <input type="text" class="searchIngredient" placeholder="Search ingredients..." />
-      <button class="searchButton"><i class="fas fa-search"></i></button>
-      </div>
-      <li><a class="menu__item">Chees</a></li>
-      <li><a class="menu__item">Tomato</a></li>
-      <li><a class="menu__item">Ketchup</a></li>
-      <li><a class="menu__item">Mushroom</a></li>
-      <li><a class="menu__item">Maiones</a></li>
-    </ul>
-  </div>
-</div>`
-    document.querySelector(".mainContainer").innerHTML = wrapper; //nkarec, hin@ jnjec
-    renderHamburger();
-    detailedPageEventListeners(type); //eventa kaxum productMenui mej
-}
+    </div> */
