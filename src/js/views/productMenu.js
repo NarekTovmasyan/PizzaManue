@@ -1,8 +1,9 @@
 import { productMenuEventListeners } from "../helpers/eventListeners";
 import { renderHamburger } from "../helpers/rightButton";
 import CONSTANTS from "../helpers/constants";
+ 
 //5qayl
-export const renderProductMenuPage = () => {
+export const renderProductMenuPage = (title) => {
         const wrapper = `<div class="productMenuBody">
     <div class="main-block">
     <header>
@@ -19,20 +20,37 @@ export const renderProductMenuPage = () => {
   </div>`
         document.querySelector(".mainContainer").innerHTML = wrapper; //nkaruma
         renderHamburger();
+
         fetch(`${CONSTANTS.HOST}/product?url=get-all`)
+
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          {
+            // data = [{}{}{}]  ->>>>>>>>> [{id=2, name=juice}]
+            let res = data.filter(function (params) {//{id=2,name=xort}
+              return params.name == title; // xortic==jucie
+            })
+            show(res);
+          }
+        })
+        function show(title){
+          console.log(title);
+        fetch(`${CONSTANTS.HOST}/product?url=get-by-id&product_id=${title[0].id}`)
             .then(function(response) {
                 return response.json();
             })
             .then(function(data) {
-              
-              let p = data.reduce(function(params) {
-                  return  `<div class="main-header">Պեպերոնի</div>
+              console.log(data);
+              let p = data.map(function(params) {
+                  return  `<div class="main-header" card_${params.name}">${params.name}</div>
                   <div class="main-colums">
                     <div class="colums-1">
                       <div class="peperoni">
                         <img src="./img/pizza2.png" alt="" />
                       </div>
-                      <div class="cloum-1-price"><label>Գին՝</label> <label id="gin">350</label> </div>
+                      <div class="cloum-1-price"><label>Գին՝</label> <label id="gin">${params.price}${params.currency}</label> </div>
                     </div>
                     <div class="colums-2">
                       <div class="row-1">Բաղադրություն</div>
@@ -47,12 +65,12 @@ export const renderProductMenuPage = () => {
                    <div></div>
                      <button class="addBasketButton">Ավելացնել զամբյուղ</button>
                     </div>
-                   </footer> `},"");  
+                   </footer> `});  
                                   
              document.querySelector(".selected").insertAdjacentHTML("afterbegin",p);
              productMenuEventListeners();            
            });
-              
+          }     
        }
 
        /*<main class = "selected">

@@ -73,7 +73,7 @@ export const detailedPageEventListeners = (type) => {
     });
     document.querySelectorAll(".cardDetailed").forEach(function(element) {
         element.addEventListener("click", function() {
-            router.redirect(`/general_menu/${type}/${this.id}`);
+            router.redirect(`/general_menu/${type[0].name}/${this.id}`);
         });
     })
 

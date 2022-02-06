@@ -5,6 +5,7 @@ import CONSTANTS from "../helpers/constants";
 import { createSlugFromName } from "../helpers/helpers";
 //4qayl
 export const renderDetailedPage = (type) => {
+    console.log(type);
     const wrapper = `<div class="detailed">
     <nav class="menuDetailed">
 <i class="fas fa-arrow-left" id="detailedPage-arrow"></i>
@@ -40,23 +41,43 @@ export const renderDetailedPage = (type) => {
 </div>`;
     document.querySelector(".mainContainer").innerHTML = wrapper; //nkarec, hin@ jnjec
     renderHamburger();
-    fetch(`${CONSTANTS.HOST}/product?url=get-all-by-product-type&product_type_id=${type}`)
-        .then(function(response) {
+    
+    fetch(`${CONSTANTS.HOST}/productType?url=get-all`)
+
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      {
+        // data = [{}{}{}]  ->>>>>>>>> [{id=2, name=juice}]
+        let res = data.filter(function (params) {//{id=2,name=xort}
+          return params.name == type; // xortic==jucie
+        })
+        show(res);
+      }
+    })
+    function show(type){
+      console.log(type);
+    
+    
+        fetch(`${CONSTANTS.HOST}/product?url=get-all-by-product-type&product_type_id=${type[0].id}`)
+       
+    .then(function(response) {
             return response.json();
         })
         .then(function(data) {
             let d = data.map(function(params) {
-                return `<div class="cardDetailed card_${params.product_type_id}" id="${createSlugFromName(params.name)}">
+                return `<div class="cardDetailed" id="${params.name}">
 <div><img class="card2Detailed" src="./img/pizza1.png"/></div>
 <div class="line">
-    <p class="detailedCardsWords"> ${params.name} <br> 1pcs: ${params.price}֏ </p>
+    <p class="detailedCardsWords"> ${params.name} <br> 1pcs: ${params.price}${params.currency} </p>
 </div>
 <div class="detailedCardIngredient1">
     <p class="detailedCardsWords">Ingredients <br>
         <ul class="center">
-            <li>Cheese</li>
-            <li>Tomato</li>
-            <li>Pepper</li>
+            <li>${params.ingredients[0].name}</li>
+            <li>${params.ingredients[1].name}</li>
+            <li>${params.ingredients[2].name}</li>
         </ul>
     </p>
 </div>
@@ -66,7 +87,7 @@ export const renderDetailedPage = (type) => {
                 .insertAdjacentHTML("afterbegin", d.join(""))
             detailedPageEventListeners(type); //eventa kaxum productMenui mej
         });
-
+    };
 };
 
 /* <div class="cardDetailed" id="chees_pizza">

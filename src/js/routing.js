@@ -22,8 +22,8 @@ router.addRoute("/general_menu/:product", function(event) {
 });
 
 router.addRoute("/general_menu/:product/:title", function(event) {
-    console.log(event.params);
-    renderProductMenuPage();
+    console.log(event.params.title);
+    renderProductMenuPage(event.params.title);
 });
 
 router.addRoute("/basket_menu", function() {
