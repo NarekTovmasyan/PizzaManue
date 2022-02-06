@@ -24,7 +24,7 @@ export const renderTablePage = () => {
             }, "")
             document.getElementById("selectTable").insertAdjacentHTML("beforeend", x);
             // document.getElementById("selectTable").innerHTML += x;
-        })
+        });
         //2qayl
     tableEventListeners(); //hetevuma eventnerin, mianuma eventnerin
 }

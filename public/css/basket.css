@@ -8,7 +8,7 @@
 
 .mainBasket {
     width: 100%;
-    height: 75vh;
+    height: 70vh;
 }
 
 .menu {
@@ -71,7 +71,11 @@
     text-align: center;
     color: white;
 }
-
+.cover{
+    background-image: url("../img/ej6.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 .confirmBasket {
     background-color: rgb(97, 216, 97);
     height: 9vh;
