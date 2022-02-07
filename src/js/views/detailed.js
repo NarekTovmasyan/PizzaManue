@@ -3,6 +3,7 @@ import { detailedPageEventListeners } from "../helpers/eventListeners";
 import { renderHamburger } from "../helpers/rightButton";
 import CONSTANTS from "../helpers/constants";
 import { createSlugFromName } from "../helpers/helpers";
+import { filter } from "../helpers/eventListeners";
 //4qayl
 export const renderDetailedPage = (type) => {
     console.log(type);
@@ -31,64 +32,73 @@ export const renderDetailedPage = (type) => {
       <input type="text" class="searchIngredient" placeholder="Search ingredients..." />
       <button class="searchButton"><i class="fas fa-search"></i></button>
       </div>
-      <li><a class="menu__item">Chees</a></li>
-      <li><a class="menu__item">Tomato</a></li>
-      <li><a class="menu__item">Ketchup</a></li>
-      <li><a class="menu__item">Mushroom</a></li>
-      <li><a class="menu__item">Maiones</a></li>
+      
+      <div>
+    
+
+      </div>
+      
+
     </ul>
   </div>
 </div>`;
     document.querySelector(".mainContainer").innerHTML = wrapper; //nkarec, hin@ jnjec
     renderHamburger();
-    
     fetch(`${CONSTANTS.HOST}/productType?url=get-all`)
-
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      {
-        // data = [{}{}{}]  ->>>>>>>>> [{id=2, name=juice}]
-        let res = data.filter(function (params) {//{id=2,name=xort}
-          return params.name == type; // xortic==jucie
-        })
-        show(res);
-      }
-    })
-    function show(type){
-      console.log(type);
-    
-    
-        fetch(`${CONSTANTS.HOST}/product?url=get-all-by-product-type&product_type_id=${type[0].id}`)
-       
-    .then(function(response) {
+        .then(function(response) {
             return response.json();
         })
         .then(function(data) {
-            let d = data.map(function(params) {
-                return `<div class="cardDetailed" id="${params.name}">
-<div><img class="card2Detailed" src="./img/pizza1.png"/></div>
-<div class="line">
-    <p class="detailedCardsWords"> ${params.name} <br> 1pcs: ${params.price}${params.currency} </p>
-</div>
-<div class="detailedCardIngredient1">
-    <p class="detailedCardsWords">Ingredients <br>
-        <ul class="center">
-            <li>${params.ingredients[0].name}</li>
-            <li>${params.ingredients[1].name}</li>
-            <li>${params.ingredients[2].name}</li>
-        </ul>
-    </p>
-</div>
-</div>`;
+            // data = [{}{}{}]  ->>>>>>>>> [{id=2, name=juice}]
+            let res = data.filter(function(params) {
+                //{id=2,name=xort}
+                return params.name == type; // xortic==jucie
             });
-            document.querySelector(".card-containerDetailed")
-                .insertAdjacentHTML("afterbegin", d.join(""))
-            detailedPageEventListeners(type); //eventa kaxum productMenui mej
-        });
-    };
+            // show(res);
+            return res;
+        }).then(function(type) {
+            console.log("text", type);
+            fetch(`${CONSTANTS.HOST}/product?url=get-all-by-product-type&product_type_id=${type[0].id}`)
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(data) {
+                    let d = data.map(function(params) {
+                        return `<div class="cardDetailed" id="${params.name}">
+         <div><img class="card2Detailed" src="./img/pizza1.png"/></div>
+         <div class="line">
+             <p class="detailedCardsWords"> ${params.name} <br> 1pcs: ${params.price}${params.currency} </p>
+         </div>
+         <div class="detailedCardIngredient1">
+             <p class="detailedCardsWords">Ingredients <br>
+                 <ul class="center">
+                     <li>${params.ingredients[0].name}</li>
+                     <li>${params.ingredients[1].name}</li>
+                     <li>${params.ingredients[2].name}</li>
+                 </ul>
+             </p>
+         </div>
+         </div>`;
+                    });
+                    document
+                        .querySelector(".card-containerDetailed")
+                        .insertAdjacentHTML("afterbegin", d.join(""));
+                    detailedPageEventListeners(type); //eventa kaxum productMenui mej
+                });
+        })
 };
+
+
+/*<li><a class="menu__item">Chees</a></li>
+  <li><a class="menu__item">Tomato</a></li>
+  <li><a class="menu__item">Ketchup</a></li>
+  <li><a class="menu__item">Mushroom</a></li>
+  <li><a class="menu__item">Maiones</a></li>
+  <li><a class="menu__item">Ketchup</a></li>
+  <li><a class="menu__item">Sausage</a></li>
+  <li><a class="menu__item">Salt</a></li>
+  <li><a class="menu__item">Pepper</a></li>
+  <li><a class="menu__item">Sugar</a></li>*/
 
 /* <div class="cardDetailed" id="chees_pizza">
         <div><img class="card2Detailed" src="./img/pizza1.png"/></div>

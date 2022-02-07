@@ -154,6 +154,44 @@ const hamburgerEventListener = () => {
             router.redirect("/basket_menu");
         });
     }
+}
 
+export const filter = () => {
 
+    //<input type="text" placeholder="search">
+    //<div id="root"></div>
+    let list = [];
+    let searchText = "";
+
+    const input = document.querySelector("input");
+    input.addEventListener("keyup", (e) => {
+        searchText = e.target.value;
+        refresh();
+    });
+    let id;
+
+    function refresh() {
+        if (id !== undefined) {
+            clearTimeout(id);
+        }
+        id = setTimeout(() => {
+            render();
+        }, 1000);
+    }
+    const root = document.querySelector("#root");
+
+    function render() {
+        root.innerHTML = "";
+        list.filter((name) => {
+                return name.indexOf(searchText) !== -1;
+            })
+            .map(name => {
+                const div = document.createElement("div");
+                div.innerHTML = name;
+                return div;
+            }).forEach(element => {
+                root.appendChild(element);
+            });
+    }
+    render();
 }

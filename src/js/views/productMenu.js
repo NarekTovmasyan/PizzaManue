@@ -1,10 +1,10 @@
 import { productMenuEventListeners } from "../helpers/eventListeners";
 import { renderHamburger } from "../helpers/rightButton";
 import CONSTANTS from "../helpers/constants";
- 
+
 //5qayl
 export const renderProductMenuPage = (title) => {
-        const wrapper = `<div class="productMenuBody">
+    const wrapper = `<div class="productMenuBody">
     <div class="main-block">
     <header>
       <div><i class="fas fa-arrow-left" id="productMenu-arrow"></i></div>
@@ -18,33 +18,28 @@ export const renderProductMenuPage = (title) => {
     </main>
     </div>
   </div>`
-        document.querySelector(".mainContainer").innerHTML = wrapper; //nkaruma
-        renderHamburger();
-
-        fetch(`${CONSTANTS.HOST}/product?url=get-all`)
-
-        .then(function (response) {
-          return response.json();
+    document.querySelector(".mainContainer").innerHTML = wrapper; //nkaruma
+    renderHamburger();
+    fetch(`${CONSTANTS.HOST}/product?url=get-all`)
+        .then(function(response) {
+            return response.json();
         })
-        .then(function (data) {
-          {
+        .then(function(data) {
             // data = [{}{}{}]  ->>>>>>>>> [{id=2, name=juice}]
-            let res = data.filter(function (params) {//{id=2,name=xort}
-              return params.name == title; // xortic==jucie
+            let res = data.filter(function(params) { //{id=2,name=xort}
+                return params.name == title; // xortic==jucie
             })
             show(res);
-          }
         })
-        function show(title){
-          console.log(title);
+
+    function show(title) {
         fetch(`${CONSTANTS.HOST}/product?url=get-by-id&product_id=${title[0].id}`)
             .then(function(response) {
                 return response.json();
             })
             .then(function(data) {
-              console.log(data);
-              let p = data.map(function(params) {
-                  return  `<div class="main-header" card_${params.name}">${params.name}</div>
+                let p = data.map(function(params) {
+                    return `<div class="main-header" card_${params.name}">${params.name}</div>
                   <div class="main-colums">
                     <div class="colums-1">
                       <div class="peperoni">
@@ -65,15 +60,15 @@ export const renderProductMenuPage = (title) => {
                    <div></div>
                      <button class="addBasketButton">Ավելացնել զամբյուղ</button>
                     </div>
-                   </footer> `});  
-                                  
-             document.querySelector(".selected").insertAdjacentHTML("afterbegin",p);
-             productMenuEventListeners();            
-           });
-          }     
-       }
+                   </footer> `
+                });
+                document.querySelector(".selected").insertAdjacentHTML("afterbegin", p);
+                productMenuEventListeners();
+            });
+    }
+}
 
-       /*<main class = "selected">
+/*<main class = "selected">
       <div class="main-header">Պեպերոնի</div>
       <div class="main-colums">
         <div class="colums-1">
@@ -97,5 +92,3 @@ export const renderProductMenuPage = (title) => {
     </div>
       </footer>
     </main>*/
-     
-   

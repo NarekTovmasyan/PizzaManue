@@ -17,14 +17,14 @@ export const renderTablePage = () => {
             return response.json()
         })
         .then(function(data) {
-            console.log("then 1: ", data[0].id);
-
-            let x = data.reduce(function(prValue, elem) {
-                return prValue += `<option class="selectedNumber-ofTable" value="${elem.id}">${elem.number}</option>`;
-            }, "")
-            document.getElementById("selectTable").insertAdjacentHTML("beforeend", x);
-            // document.getElementById("selectTable").innerHTML += x;
+            if (document.querySelectorAll(".tables option").length == 1) {
+                let x = data.reduce(function(prValue, elem) {
+                    return prValue += `<option class="selectedNumber-ofTable" value="${elem.id}">${elem.number}</option>`;
+                }, "")
+                document.getElementById("selectTable").insertAdjacentHTML("beforeend", x);
+                // document.getElementById("selectTable").innerHTML += x;
+            }
         });
-        //2qayl
+    //2qayl
     tableEventListeners(); //hetevuma eventnerin, mianuma eventnerin
 }

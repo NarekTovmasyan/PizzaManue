@@ -1,7 +1,7 @@
 import { basketEventListeners } from "../helpers/eventListeners";
 import { renderHamburger } from "../helpers/rightButton";
 import CONSTANTS from "../helpers/constants";
-
+import { getCookies } from "../helpers/localStorage";
 export const renderBasketPage = () => {
     const wrapper = `<div class = "basket">
     <nav class="menu">
@@ -15,17 +15,20 @@ export const renderBasketPage = () => {
      <div class ="sumBasket">Ընդհանուր՝  </div>
      <div class= "cover"><button class = "confirmBasket">Հաստատել</button></div>   
 </div>`
-document.querySelector(".mainContainer").innerHTML = wrapper;  
-renderHamburger();  
-fetch(`${CONSTANTS.HOST}/order?url=read-all`)
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(data) {
-        console.log(data);
-        let b = data.reduce(function(prValue,params) { 
-          return params.products.map(function(params){
-            return prValue = `<div class ="propBasket" id = "${params.name}">
+    document.querySelector(".mainContainer").innerHTML = wrapper;
+    renderHamburger();
+    console.log(getCookies(CONSTANTS.TABLE));
+    debugger
+    fetch(`${CONSTANTS.HOST}/order?url=read-by-table-id&table-id=${getCookies(CONSTANTS.TABLE)}`)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            let sum = 0;
+            let b = data.products && data.products.reduce(function(prValue, params) {
+                    console.log(data);
+                    sum += params.price;
+                    return prValue += `<div class ="propBasket" id = "${params.name}">
             <div ><img class="pizza1ImgBasket" src="./img/pizza1.png"/></div>
             <div>${params.name}</div>
             <div>Գին՝ </div>
@@ -34,14 +37,13 @@ fetch(`${CONSTANTS.HOST}/order?url=read-all`)
             <div><button class = "closeBasket"><i class="fas fa-times"></i></button></div>
          </div>
          </div>`
+                }, "")
+                // let propBusket=document.
+            document.querySelector(".mainBasket").insertAdjacentHTML("afterbegin", b);
+            document.querySelector(".sumBasket").insertAdjacentHTML("beforeend", sum);
         });
-         
-    },"") 
-             document.querySelector(".mainBasket").insertAdjacentHTML("afterbegin",b);       
-    });
-
-    basketEventListeners();    
-}   
+    basketEventListeners();
+}
 
 /*<div class= "mainBasket">
     <div class ="propBasket">
