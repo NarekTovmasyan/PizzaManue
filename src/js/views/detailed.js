@@ -4,9 +4,10 @@ import { renderHamburger } from "../helpers/rightButton";
 import CONSTANTS from "../helpers/constants";
 import { createSlugFromName } from "../helpers/helpers";
 import { filter } from "../helpers/eventListeners";
+import { State } from "../helpers/model";
 //4qayl
 export const renderDetailedPage = (type) => {
-    console.log(type);
+   
     const wrapper = `<div class="detailed">
     <nav class="menuDetailed">
 <i class="fas fa-arrow-left" id="detailedPage-arrow"></i>
@@ -44,25 +45,22 @@ export const renderDetailedPage = (type) => {
 </div>`;
     document.querySelector(".mainContainer").innerHTML = wrapper; //nkarec, hin@ jnjec
     renderHamburger();
-    fetch(`${CONSTANTS.HOST}/productType?url=get-all`)
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(data) {
+    
             // data = [{}{}{}]  ->>>>>>>>> [{id=2, name=juice}]
-            let res = data.filter(function(params) {
+            let res = State.productTypes.find(function(params) {
                 //{id=2,name=xort}
                 return params.name == type; // xortic==jucie
             });
             // show(res);
-            return res;
-        }).then(function(type) {
-            console.log("text", type);
-            fetch(`${CONSTANTS.HOST}/product?url=get-all-by-product-type&product_type_id=${type[0].id}`)
+
+ 
+            fetch(`${CONSTANTS.HOST}/product?url=get-all-by-product-type&product_type_id=${res.id}`)
                 .then(function(response) {
                     return response.json();
                 })
+
                 .then(function(data) {
+                    State.productTypes = data;
                     let d = data.map(function(params) {
                         return `<div class="cardDetailed" id="${params.name}">
          <div><img class="card2Detailed" src="./img/pizza1.png"/></div>
@@ -85,7 +83,7 @@ export const renderDetailedPage = (type) => {
                         .insertAdjacentHTML("afterbegin", d.join(""));
                     detailedPageEventListeners(type); //eventa kaxum productMenui mej
                 });
-        })
+        
 };
 
 

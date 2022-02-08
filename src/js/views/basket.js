@@ -2,6 +2,8 @@ import { basketEventListeners } from "../helpers/eventListeners";
 import { renderHamburger } from "../helpers/rightButton";
 import CONSTANTS from "../helpers/constants";
 import { getCookies } from "../helpers/localStorage";
+import { State } from "../helpers/model";
+
 export const renderBasketPage = () => {
     const wrapper = `<div class = "basket">
     <nav class="menu">
@@ -17,16 +19,16 @@ export const renderBasketPage = () => {
 </div>`
     document.querySelector(".mainContainer").innerHTML = wrapper;
     renderHamburger();
-    console.log(getCookies(CONSTANTS.TABLE));
-    debugger
+   
+    
     fetch(`${CONSTANTS.HOST}/order?url=read-by-table-id&table-id=${getCookies(CONSTANTS.TABLE)}`)
         .then(function(response) {
             return response.json();
         })
         .then(function(data) {
+            State.productTypes = data; 
             let sum = 0;
             let b = data.products && data.products.reduce(function(prValue, params) {
-                    console.log(data);
                     sum += params.price;
                     return prValue += `<div class ="propBasket" id = "${params.name}">
             <div ><img class="pizza1ImgBasket" src="./img/pizza1.png"/></div>

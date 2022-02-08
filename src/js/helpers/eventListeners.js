@@ -13,7 +13,7 @@ import { renderProductMenuPage } from "../views/productMenu";
 import { renderBasketPage } from "../views/basket";
 
 import { renderTablePage } from "../views/table";
-
+import { State } from "./model";
 import router from "../routing";
 
 //2qayl
@@ -67,13 +67,14 @@ export const generalMenuEventListeners = (type) => {
     //5qayl
 
 export const detailedPageEventListeners = (type) => {
+   console.log("type==", type);
     document.querySelector("#detailedPage-arrow").addEventListener("click", function() {
         renderGeneralMenuPage();
         //window.history.back()
     });
     document.querySelectorAll(".cardDetailed").forEach(function(element) {
         element.addEventListener("click", function() {
-            router.redirect(`/general_menu/${type[0].name}/${this.id}`);
+            router.redirect(`/general_menu/${type}/${this.id}`);
         });
     })
 
@@ -94,12 +95,18 @@ export const productMenuEventListeners = () => {
     document.querySelector("#productMenu-arrow").addEventListener("click", function() {
         window.history.back();
     });
+   
     document.querySelector(".addBasketButton").addEventListener("click", function() {
-        router.redirect("/basket_menu");
-    });
+        const prodObj = {
+          productId: 'pizza',
+          quantity: 2,
+          }
+          State.basket.push(prodObj)
+             router.redirect("/basket_menu");
+       })
     // document.querySelector(".detailedBurgerA.backHome").addEventListener("click", function() {
     //     //renderGeneralMenuPage();
-    //     window.history.go(-2); //////////////////////
+    //     window.history.go(-2); 
     // });
     // document.querySelector("#hamburger-Detailed").addEventListener("click", function() {
     //     window.history.back();

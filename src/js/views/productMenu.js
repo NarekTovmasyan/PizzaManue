@@ -1,6 +1,7 @@
 import { productMenuEventListeners } from "../helpers/eventListeners";
 import { renderHamburger } from "../helpers/rightButton";
 import CONSTANTS from "../helpers/constants";
+import { State } from "../helpers/model";
 
 //5qayl
 export const renderProductMenuPage = (title) => {
@@ -20,24 +21,23 @@ export const renderProductMenuPage = (title) => {
   </div>`
     document.querySelector(".mainContainer").innerHTML = wrapper; //nkaruma
     renderHamburger();
-    fetch(`${CONSTANTS.HOST}/product?url=get-all`)
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(data) {
+    
+   
             // data = [{}{}{}]  ->>>>>>>>> [{id=2, name=juice}]
-            let res = data.filter(function(params) { //{id=2,name=xort}
+            let res = State.productTypes.find(function(params) { //{id=2,name=xort}
                 return params.name == title; // xortic==jucie
             })
-            show(res);
-        })
-
-    function show(title) {
-        fetch(`${CONSTANTS.HOST}/product?url=get-by-id&product_id=${title[0].id}`)
+            
+        
+            
+    
+        fetch(`${CONSTANTS.HOST}/product?url=get-by-id&product_id=${res.id}`)
             .then(function(response) {
                 return response.json();
-            })
+               
+             })
             .then(function(data) {
+              State.productTypes = data;
                 let p = data.map(function(params) {
                     return `<div class="main-header" card_${params.name}">${params.name}</div>
                   <div class="main-colums">
@@ -52,7 +52,7 @@ export const renderProductMenuPage = (title) => {
                       <div class="row-2">Պանիր <a class="plyus"> + </a> <a class="minus"> - </a>
                       </div>
                       <div class="row-2"> Երշիկ ․․․</div>
-                      <div class="row-3"> <label for="quantity">Քանակ (կտոր)</label><input type="number" id="quantity" name="quantity" min="1" max="30">
+                      <div class="row-3"> <label for="quantity">Քանակ (կտոր)</label><input type="number" id="quantity"  min="1" max="30">
                         <button class="confirm">Հաստատել</button></div>
                     </div>
                   </div>
@@ -63,10 +63,11 @@ export const renderProductMenuPage = (title) => {
                    </footer> `
                 });
                 document.querySelector(".selected").insertAdjacentHTML("afterbegin", p);
+                              
                 productMenuEventListeners();
             });
     }
-}
+
 
 /*<main class = "selected">
       <div class="main-header">Պեպերոնի</div>
