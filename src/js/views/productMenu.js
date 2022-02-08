@@ -19,31 +19,22 @@ export const renderProductMenuPage = (title) => {
     </main>
     </div>
   </div>`
-    document.querySelector(".mainContainer").innerHTML = wrapper; //nkaruma
+    document.querySelector(".mainContainer").innerHTML = wrapper;
     renderHamburger();
-    debugger;
-     
-            
-          // State.productTypes.find(function(params) { //{id=2,name=xort}
-//return params.name == title; // xortic==jucie
-           // })
-    
-        //fetch(`${CONSTANTS.HOST}/product?url=get-by-id&product_id=${res.id}`)
-        fetch(`${CONSTANTS.HOST}/product?url=get-by-id&product_id=${title}`)
-            .then(function(response) {
-                return response.json();
-               
-             })
-            .then(function(data) {
-              State.productTypes = data;
-                let p = data.map(function(params) {
-                    return `<div class="main-header" card_${params.name}">${params.name}</div>
+    fetch(`${CONSTANTS.HOST}/product?url=get-by-id&product_id=${title}`)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            State.productTypes = data;
+            let p = data.map(function(data) {
+                return `<div class="main-header" card_${data.name}">${data.name}</div>
                   <div class="main-colums">
                     <div class="colums-1">
                       <div class="peperoni">
                         <img src="./img/pizza2.png" alt="" />
                       </div>
-                      <div class="cloum-1-price"><label>Գին՝</label> <label id="gin">${params.price}${params.currency}</label> </div>
+                      <div class="cloum-1-price"><label>Գին՝</label> <label id="gin">${data.price}${data.currency}</label> </div>
                     </div>
                     <div class="colums-2">
                       <div class="row-1">Բաղադրություն</div>
@@ -51,7 +42,6 @@ export const renderProductMenuPage = (title) => {
                       </div>
                       <div class="row-2"> Երշիկ ․․․</div>
                       <div class="row-3"> <label for="quantity">Քանակ (կտոր)</label><input type="number" id="quantity"  min="1" max="30">
-                        <button class="confirm">Հաստատել</button></div>
                     </div>
                   </div>
                   <footer>
@@ -59,12 +49,12 @@ export const renderProductMenuPage = (title) => {
                      <button class="addBasketButton">Ավելացնել զամբյուղ</button>
                     </div>
                    </footer> `
-                });
-                document.querySelector(".selected").insertAdjacentHTML("afterbegin", p);
-                              
-                productMenuEventListeners();
             });
-    }
+            document.querySelector(".selected").insertAdjacentHTML("afterbegin", p);
+            let prodData = data[0];
+            productMenuEventListeners(prodData);
+        });
+}
 
 
 /*<main class = "selected">

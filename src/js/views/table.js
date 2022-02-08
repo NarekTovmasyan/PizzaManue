@@ -22,9 +22,7 @@ export const renderTablePage = () => {
                     return prValue += `<option class="selectedNumber-ofTable" value="${elem.id}">${elem.number}</option>`;
                 }, "")
                 document.getElementById("selectTable").insertAdjacentHTML("beforeend", x);
-                // document.getElementById("selectTable").innerHTML += x;
             }
         });
-    //2qayl
-    tableEventListeners(); //hetevuma eventnerin, mianuma eventnerin
+    tableEventListeners();
 }
