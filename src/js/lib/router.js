@@ -133,13 +133,4 @@ export default class Router {
 
 
 
-
-// init
-//   if (typeof window !== "undefined") {
-//     window.Router = Router;
-//   } else if (typeof module !== "undefined") {
-//     module.exports = Router;
-//   } else {
-//     return Router;
-//   }
-//}
+ 

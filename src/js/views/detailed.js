@@ -32,14 +32,9 @@ export const renderDetailedPage = (type) => {
       <div class="parentInput">
       <input type="text" class="searchIngredient" placeholder="Search ingredients..." />
       <button class="searchButton"><i class="fas fa-search"></i></button>
-      </div>
-      
+      </div>     
       <div>
-    
-
       </div>
-      
-
     </ul>
   </div>
 </div>`;

@@ -1,61 +1,69 @@
-  /* marmin*/
-  
+
   .productMenuBody {
       color: #333333;
       font-family: "Roboto", sans-serif;
       overflow-x: hidden;
-      background-image: url("../img/ej3.jpg");
+     background-image: url("../img/ej3.jpg");
       background-repeat: no-repeat;
       background-size: cover;
       height: 100%;
       position: relative;
   }
-  /*glux*/
+   
   
   header {
       display: flex;
       justify-content: space-between;
   }
-  /*glxavor glux*/
-  
+   
   .main-header {
       display: flex;
-      font-size: 30px;
+      font-size: 50px;
       justify-content: center;
-      color: white;
+      color: rgb(241, 166, 94);
       margin: 20px;
       padding: 20px;
       margin-top: 60px;
   }
   
-  .main-colums {
+  .main-colums {    
+      margin-left: 150px;
       margin-top: 40px;
-      height: 300px;
-      color: white;
+      height: 500px;
+      color: rgb(163, 231, 117);
       display: flex;
       justify-content: space-evenly;
   }
   
-  .cloum-1-price {
-      margin: 30px;
+  .colums-1-price {
+      margin-left:15px;
+      margin-top: 115px;
       font-size: large;
       text-align: center;
   }
+   
   
   .colums-2 {
+      margin-left:50px;
       margin-top: 50px;
       width: 184px;
   }
-  
+
+     input{
+       margin-top: 5px;
+       background-color: rgb(91, 214, 91);
+       width: 50px;
+       border-radius: 11px;
+       cursor: pointer;
+   }
+   input:hover{
+    background-color: white;  
+   }
   .row-1 {
-      font-size: 16px;
+      font-size: 25px;
   }
   
-  .plyus,
-  .minus {
-      cursor: pointer;
-      color: white;
-  }
+   
   
   .row-2,
   .row-3 {
@@ -72,8 +80,9 @@
   }
   
   .addBasketButton {
+      border-radius: 15px;
       cursor: pointer;
-      background-color: #77b54e;
+      background-color: #75c242;
       outline: none;
       color: #fff;
       padding: 10px 15px;
@@ -81,7 +90,15 @@
       border: none;
       transition: 0.5s ease;
   }
-  
+  .addBasketButton:hover {
+      background-color: white;
+      color:green;
+  }
+  .addButton{
+     width:100%;
+     margin-top: 300px;
+     margin-left: 500px;
+  }
   .peperoni {
       margin: 30px;
   }
@@ -99,8 +116,7 @@
       color: white;
       background-color: #2ecc71;
   }
-  /*hamburger */
-  /*arrow-back*/
+   
   
   .fa-arrow-left {
       width: 20px;

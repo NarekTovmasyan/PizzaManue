@@ -10,7 +10,6 @@ export const tableEventListeners = () => {
     document.querySelector(".connectToTable").addEventListener("click", function() {
         if (!Number.isNaN(Number(value))) {
             setCookies("tableName", value);
-            // getCookies("tableName");
             router.redirect("/general_menu");
         } else {
             alert("please enter your table number");

@@ -1,7 +1,5 @@
 import { basketEventListeners } from "../helpers/eventListeners";
 import { renderHamburger } from "../helpers/rightButton";
-import CONSTANTS from "../helpers/constants";
-import { getCookies } from "../helpers/localStorage";
 import { State } from "../helpers/model";
 
 export const renderBasketPage = () => {
@@ -39,14 +37,16 @@ export const renderBasketPage = () => {
     }, "");
     let template = document.querySelector(".mainBasket");
     template.insertAdjacentHTML("afterbegin", busket);
-
+    
     document.querySelectorAll(".closeBasket").forEach(item =>
         item.addEventListener("click", (event) => {
             debugger
             let forDelete = event.target.parentElement.parentElement.parentElement;
+ 
             let forDeleteObj = State.basket.find(item => {
                 return item.id == forDelete.id;
             })
+ 
             State.basket = State.basket.filter(item => {
                 return item.id != forDelete.id;
             })
@@ -60,33 +60,7 @@ export const renderBasketPage = () => {
 
     renderHamburger();
     basketEventListeners();
-
-
+     
 }
 
-/*<div class= "mainBasket">
-    <div class ="propBasket">
-        <div ><img class="pizza1ImgBasket" src="./img/pizza1.png"/></div>
-        <div>Պեպերոնի</div>
-        <div>Գին՝ 350դր</div>
-        <div>Քանակ՝ -[2]+ </div>
-        <div>Արժեքը՝ 700դր</div>
-        <div><button class = "closeBasket"><i class="fas fa-times"></i></button></div>
-     </div>
-    <div class ="propBasket"> 
-        <div ><img class="pizza1ImgBasket" src="./img/pizza2.png"/></div>
-        <div>Պեպերոնի</div>
-        <div>Գին՝ 350դր</div>
-        <div>Քանակ՝ -[2]+ </div>
-        <div>Արժեքը՝ 700դր</div>
-        <div><button class = "closeBasket"><i class="fas fa-times"></i></button></div>
-    </div>
-    <div class ="propBasket"> 
-        <div ><img class="pizza1ImgBasket" src="./img/pizza3.png"/></div>
-        <div>Պեպերոնի</div>
-        <div>Գին՝ 350դր</div>
-        <div>Քանակ՝ -[2]+ </div>
-        <div>Արժեքը՝ 700դր</div>
-        <div><button class = "closeBasket"><i class="fas fa-times"></i></button></div>
-    </div>
-        <div class ="sumBasket">Ընդհանուր՝ 2100դր</div>*/
+ 
