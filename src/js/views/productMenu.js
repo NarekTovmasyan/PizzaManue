@@ -34,14 +34,14 @@ export const renderProductMenuPage = (title) => {
                       <div class="peperoni">
                         <img src="./img/pizza2.png" alt="" />
                       </div>
-                      <div class="cloum-1-price"><label>Գին՝</label> <label id="gin">${data.price}${data.currency}</label> </div>
+                      <div class="cloum-1-price"><label>Գին՝</label> <label id="gin">${data.price}${data.currency}</label></div>
                     </div>
                     <div class="colums-2">
                       <div class="row-1">Բաղադրություն</div>
                       <div class="row-2">Պանիր <a class="plyus"> + </a> <a class="minus"> - </a>
                       </div>
                       <div class="row-2"> Երշիկ ․․․</div>
-                      <div class="row-3"> <label for="quantity">Քանակ (կտոր)</label><input type="number" id="quantity"  min="1" max="30">
+                      <div class="row-3"> <label for="quantity">Քանակ (կտոր)</label><input type="number" id="quantity"  min="1" max="30"></div>
                     </div>
                   </div>
                   <footer>
