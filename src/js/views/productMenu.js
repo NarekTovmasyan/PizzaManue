@@ -21,17 +21,15 @@ export const renderProductMenuPage = (title) => {
   </div>`
     document.querySelector(".mainContainer").innerHTML = wrapper; //nkaruma
     renderHamburger();
-    
-   
-            // data = [{}{}{}]  ->>>>>>>>> [{id=2, name=juice}]
-            let res = State.productTypes.find(function(params) { //{id=2,name=xort}
-                return params.name == title; // xortic==jucie
-            })
+    debugger;
+     
             
-        
-            
+          // State.productTypes.find(function(params) { //{id=2,name=xort}
+//return params.name == title; // xortic==jucie
+           // })
     
-        fetch(`${CONSTANTS.HOST}/product?url=get-by-id&product_id=${res.id}`)
+        //fetch(`${CONSTANTS.HOST}/product?url=get-by-id&product_id=${res.id}`)
+        fetch(`${CONSTANTS.HOST}/product?url=get-by-id&product_id=${title}`)
             .then(function(response) {
                 return response.json();
                

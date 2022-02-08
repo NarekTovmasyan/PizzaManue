@@ -26,11 +26,11 @@ export const renderBasketPage = () => {
             return response.json();
         })
         .then(function(data) {
-            State.productTypes = data; 
+           // State.productTypes = data; 
             let sum = 0;
             let b = data.products && data.products.reduce(function(prValue, params) {
                     sum += params.price;
-                    return prValue += `<div class ="propBasket" id = "${params.name}">
+                    return prValue = `<div class ="propBasket" id = "${params.name}">
             <div ><img class="pizza1ImgBasket" src="./img/pizza1.png"/></div>
             <div>${params.name}</div>
             <div>Գին՝ </div>

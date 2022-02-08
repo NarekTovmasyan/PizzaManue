@@ -32,7 +32,7 @@ export const renderGeneralMenuPage = () => {
             let elem = document.querySelector(".grid-containerGeneralMenu");
             elem.innerHTML = "";
             data.forEach((element) => {
-  elem.innerHTML += `<a class="productsGeneralMenu" id="${element.name}"><p>${element.name}</p></a>`;
+  elem.innerHTML += `<a class="productsGeneralMenu" id="${element.id}"><p>${element.name}</p></a>`;
             });
             generalMenuEventListeners(); //nkareluc heto noric evenlisenera kaxum
         });

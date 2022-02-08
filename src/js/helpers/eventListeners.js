@@ -48,7 +48,7 @@ export const generalMenuEventListeners = (type) => {
             //element.onclick = renderDetailedPage; chishta ashxatum aranc pakagci ()
             // element.onclick = router.redirect(`/general_menu/${element.id}`); sxala ashxatum, vortev ()kanchaca arden
             element.addEventListener("click", function() {
-
+                    console.log('element=', element);
                 router.redirect(`/general_menu/${this.id}`);
             });
         });
@@ -74,6 +74,7 @@ export const detailedPageEventListeners = (type) => {
     });
     document.querySelectorAll(".cardDetailed").forEach(function(element) {
         element.addEventListener("click", function() {
+            console.log('detailedPageEventListener : element=', element);
             router.redirect(`/general_menu/${type}/${this.id}`);
         });
     })

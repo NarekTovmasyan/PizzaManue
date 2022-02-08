@@ -18,6 +18,7 @@ router.addRoute("/general_menu", function() {
 
 router.addRoute("/general_menu/:product", function(event) {
     console.log(event.params);
+    debugger;
     renderDetailedPage(event.params.product);
 });
 
