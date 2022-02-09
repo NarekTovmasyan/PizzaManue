@@ -100,3 +100,33 @@
     width: 160px;
     background-size: cover;
 }
+@media(max-width:900px){
+    .confirmBasket {       
+        width: 30%;
+        height: 5vh;
+        border-radius: 20px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 300;
+    }
+    .sumBasket {
+        width: 20%;
+        height: 5vh;
+        margin-top: 3%;
+        margin-left: 55%;
+        font-size: 20px;
+        font-weight: 300;
+    }
+    .closeBasket {
+        margin-left: 0;
+    }
+    .propBasket {
+        margin-left: 50px;
+        width: 74%;
+        height: 10vh;
+        column-gap: 60px;
+        justify-content: center;
+        align-items: center;
+        font-size: 15px;
+    }
+ }

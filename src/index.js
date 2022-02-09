@@ -1,10 +1,7 @@
-import { setCookies, getCookies } from "./js/helpers/localStorage";
-
-import { renderTablePage } from "./js/views/table";
-
+import { getCookies } from "./js/helpers/localStorage";
 import router from "./js/routing";
 
-// cookies();
+ 
 const hash = window.location.hash;
 if (getCookies("tableName") != "") {
     let hashString = (hash.indexOf("#") >= 0 &&
@@ -13,9 +10,4 @@ if (getCookies("tableName") != "") {
 } else {
     router.redirect("/");
 }
-
-// if (hashString == "/") {
-//     router.redirect("/");
-// } else {
-//     router.redirect(hashString);
-// }
+ 

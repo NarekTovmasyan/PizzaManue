@@ -2,13 +2,9 @@
 import { detailedPageEventListeners } from "../helpers/eventListeners";
 import { renderHamburger } from "../helpers/rightButton";
 import CONSTANTS from "../helpers/constants";
-import { createSlugFromName } from "../helpers/helpers";
-import { filter } from "../helpers/eventListeners";
-import { State } from "../helpers/model";
-
-
+ 
 export const renderDetailedPage = (type) => {
-    const wrapper = `<div class="detailed">
+  const wrapper = `<div class="detailed">
     <nav class="menuDetailed">
 <i class="fas fa-arrow-left" id="detailedPage-arrow"></i>
 <div class="hiddenMenuGeneralMenu">
@@ -33,20 +29,32 @@ export const renderDetailedPage = (type) => {
       <input type="text" class="searchIngredient" placeholder="Search ingredients..." />
       <button class="searchButton"><i class="fas fa-search"></i></button>
       </div>     
-      <div>
-      </div>
+                       <div>
+                             <li><a class="menu__item">Chees</a></li>
+                             <li><a class="menu__item">Tomato</a></li>
+                             <li><a class="menu__item">Ketchup</a></li>
+                             <li><a class="menu__item">Mushroom</a></li>
+                             <li><a class="menu__item">Maiones</a></li>
+                             <li><a class="menu__item">Ketchup</a></li>
+                             <li><a class="menu__item">Sausage</a></li>
+                             <li><a class="menu__item">Salt</a></li>
+                             <li><a class="menu__item">Pepper</a></li>
+                             <li><a class="menu__item">Sugar</a></li>
+                      </div>
     </ul>
   </div>
 </div>`;
-    document.querySelector(".mainContainer").innerHTML = wrapper;
-    renderHamburger();
-    fetch(`${CONSTANTS.HOST}/product?url=get-all-by-product-type&product_type_id=${type}`)
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(data) {
-            let d = data.map(function(params) {
-                let cardDetailed = `<div class="cardDetailed" id="${params.id}">
+  document.querySelector(".mainContainer").innerHTML = wrapper;
+  renderHamburger();
+  fetch(
+    `${CONSTANTS.HOST}/product?url=get-all-by-product-type&product_type_id=${type}`
+  )
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      let d = data.map(function (params) {
+        let cardDetailed = `<div class="cardDetailed" id="${params.id}">
                                     <div><img class="card2Detailed" src="./img/pizza1.png"/></div>
                                     <div class="line">
                                     <p class="detailedCardsWords"> ${params.name} <br> 1pcs: ${params.price}${params.currency} </p>
@@ -54,90 +62,25 @@ export const renderDetailedPage = (type) => {
                                     <div class="detailedCardIngredient1">
                                     <p class="detailedCardsWords">Ingredients <br>
                                     <ul class="center">`;
-                cardDetailed += getIngredientsToDom(params);
-                cardDetailed += `</ul>
+        cardDetailed += getIngredientsToDom(params);
+        cardDetailed += `</ul>
                     </p>
                     </div>
                     </div>`;
-                return cardDetailed;
-            });
-            document.querySelector(".card-containerDetailed")
-                .insertAdjacentHTML("afterbegin", d.join(""));
-            detailedPageEventListeners(type);
-        });
 
-    function getIngredientsToDom(paramsData) {
-        let ingredientsList = paramsData.ingredients.map(function(ingredient) {
-            return `<li>${ingredient.name}</li>`
-        });
-        return ingredientsList.join('');
-    }
+        return cardDetailed;
+      });
+      document
+        .querySelector(".card-containerDetailed")
+        .insertAdjacentHTML("afterbegin", d.join(""));
+      detailedPageEventListeners(type);
+    });
+
+  function getIngredientsToDom(paramsData) {
+    let ingredientsList = paramsData.ingredients.map(function (ingredient) {
+      return `<li>${ingredient.name}</li>`;
+    });
+    return ingredientsList.join("");
+  }
 };
 
-
-
-/*<li><a class="menu__item">Chees</a></li>
-<li><a class="menu__item">Tomato</a></li>
-                            <li><a class="menu__item">Ketchup</a></li>
-                            <li><a class="menu__item">Mushroom</a></li>
-                            <li><a class="menu__item">Maiones</a></li>
-                            <li><a class="menu__item">Ketchup</a></li>
-                            <li><a class="menu__item">Sausage</a></li>
-                            <li><a class="menu__item">Salt</a></li>
-                            <li><a class="menu__item">Pepper</a></li>
-                            <li><a class="menu__item">Sugar</a></li>*/
-
-/* <div class="cardDetailed" id="chees_pizza">
-                                    <div><img class="card2Detailed" src="./img/pizza1.png"/></div>
-                                    <div class="line">
-                                    <p class="detailedCardsWords"> Cheese Pizza <br> 1pcs: 300֏ </p>
-                                    </div>
-                                    <div class="detailedCardIngredient1">
-                                    <p class="detailedCardsWords">Ingredients <br>
-                                    <ul class="center">
-                                    <li>Cheese</li>
-                                    <li>Tomato</li>
-                                    <li>Pepper</li>
-                                    </ul>
-                                    </p>
-                                    </div>
-                                    </div>
-                                    return cardDetailed;
-            
-            <div class="cardDetailed" id="pepperoni_pizza">
-            <div><img class="card2Detailed" src="./img/pizza2.png"/></div>
-            
-            <div class="namePrice2 line">
-            <p class="detailedCardsWords"> Pepperoni Pizza <br> 1pcs: 300֏</p>
-            </div>
-            
-            <div class="detailedCardIngredient1">
-            <p class="detailedCardsWords"> Ingredients <br>
-            <ul class="center">
-            <li>Cheese</li>
-            console.log("ingredients",ingredients)
-                    <li>Tomato</li>
-                    <li>Pepper</li>
-                </ul>
-            </p>
-        </div>
-
-    </div>
-    <div class="cardDetailed" id="diablo_pizza">
-       <div> <img class="card2Detailed" src="./img/pizza3.png"/> </div>
-
-        <div class="namePrice3 line">
-            <p class="detailedCardsWords">Cheese Pizza <br> 1pcs: 300֏</p>
-        </div>
-
-        <div class="detailedCardIngredient1">
-            <p class="detailedCardsWords">Ingredients <br>
-                <ul class="center">
-                    <li>Cheese</li>
-                    <li>Tomato</li>
-                    <li>Pepper</li>
-                </ul>
-            </p>
-        </div>
-
-    </div> */

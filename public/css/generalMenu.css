@@ -65,3 +65,11 @@
      font-size: 25px;
      font-weight: 700;
  }
+ @media(max-width:1200px){
+    .grid-containerGeneralMenu {
+        display: grid;
+        grid-template-columns: 1fr ;
+        margin: 0px;
+     }
+  }
+  
