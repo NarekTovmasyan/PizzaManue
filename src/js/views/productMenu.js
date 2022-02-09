@@ -41,7 +41,7 @@ export const renderProductMenuPage = (title) => {
                       <div class="row-2">Պանիր  </div>
                       <div class="row-2"> Երշիկ </div>
                       <div class="row-2"> Լոլիկ </div>
-                      <div class="row-3"> <label for="quantity">Քանակ (կտոր)</label><input type="number" id="quantity"  min="1" max="30">
+                      <div class="row-3"> <label for="quantity">Քանակ (կտոր)</label><input type="number" id="quantity" value ="1"  min="1" max="30">
                     </div>
                   </div>
                   <footer>
